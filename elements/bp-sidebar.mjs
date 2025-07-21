@@ -20,20 +20,20 @@ export default function sidebar ({html, state}) {
       <br>
       
       <h3>Resources</h3>
-      <a ${active('/schemas/2024-10-01/sanity.blueprint')}><code>sanity.blueprint</code></a></li>
-      <a ${active('/schemas/2024-10-01/sanity.project')}><code>sanity.project</code></a></li>
+      <a ${active('/reference/resources/sanity.blueprint')}><code>sanity.blueprint</code></a></li>
+      <a ${active('/reference/resources/sanity.project')}><code>sanity.project</code></a></li>
       <hr>
-      <a ${active('/schemas/2024-10-01/sanity.project.origin')}><code>sanity.project.origin</code></a>
-      <a ${active('/schemas/2024-10-01/sanity.project.dataset')}><code>sanity.project.dataset</code></a>
-      <a ${active('/schemas/2024-10-01/sanity.project.studio')}><code>sanity.project.studio</code></a>
-      <a ${active('/schemas/2024-10-01/sanity.project.webhook')}><code>sanity.project.webhook</code></a>
+      <a ${active('/reference/resources/sanity.project.origin')}><code>sanity.project.origin</code></a>
+      <a ${active('/reference/resources/sanity.project.dataset')}><code>sanity.project.dataset</code></a>
+      <a ${active('/reference/resources/sanity.project.studio')}><code>sanity.project.studio</code></a>
+      <a ${active('/reference/resources/sanity.project.webhook')}><code>sanity.project.webhook</code></a>
       <hr>
-      <a ${active('/schemas/2024-10-01/sanity.function.document')}><code>sanity.function.document</code></a>
-      <a ${active('/schemas/2024-10-01/sanity.function.cron')}><code>sanity.function.cron</code></a>
-      <a ${active('/schemas/2024-10-01/sanity.function.https')}><code>sanity.function.https</code></a>
-      <a ${active('/schemas/2024-10-01/sanity.function.wss')}><code>sanity.function.wss</code></a>
-      <a ${active('/schemas/2024-10-01/sanity.function.event')}><code>sanity.function.event</code></a>
-      <a ${active('/schemas/2024-10-01/sanity.function.queue')}><code>sanity.function.queue</code></a>
+      <a ${active('/reference/resources/sanity.function.document')}><code>sanity.function.document</code></a>
+      <a ${active('/reference/resources/sanity.function.cron')}><code>sanity.function.cron</code></a>
+      <a ${active('/reference/resources/sanity.function.https')}><code>sanity.function.https</code></a>
+      <a ${active('/reference/resources/sanity.function.wss')}><code>sanity.function.wss</code></a>
+      <a ${active('/reference/resources/sanity.function.event')}><code>sanity.function.event</code></a>
+      <a ${active('/reference/resources/sanity.function.queue')}><code>sanity.function.queue</code></a>
       <br>
       
       <!--

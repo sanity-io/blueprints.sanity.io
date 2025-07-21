@@ -6,6 +6,7 @@ import sidebar from './elements/bp-sidebar.mjs'
 import code from './elements/bp-code.mjs'
 import json from './elements/bp-code-json.mjs'
 import ts from './elements/bp-code-ts.mjs'
+import jsonschema from './elements/bp-jsonschema.mjs'
 import debug from './elements/bp-debug.mjs'
 
 let css = false // only read once on coldstart
@@ -20,6 +21,7 @@ export default function render ({html, state}) {
       'bp-code': code,
       'bp-code-json': json,
       'bp-code-ts': ts,
+      'bp-jsonschema': jsonschema,
       'bp-debug': debug
     },
     initialState: { ...state }
