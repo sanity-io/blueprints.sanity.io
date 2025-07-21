@@ -1,0 +1,20 @@
+<h1>Values</h1>
+
+<p>Values are variables that developers can define for reuse within the Blueprint manifest. They represent configurable parameters, constants, and dynamic configurations that can be referenced throughout your infrastructure definition.</p>
+
+<p>Defining values in a Blueprint manifest:
+
+TODO EXMAMPLE HERE
+</p>
+<p>Values can then be referenced throughout your Blueprint template using interpolation syntax like `$.values.environment}` or `$.values.instance_count`.</p>
+<h3>Features of Values</h3>
+<ul>
+  <li>Template reusability: Values allow the same Blueprint template to be used across different environments (development, staging, production) by simply changing the Value definitions rather than duplicating entire templates.
+  <li>Consistency: by defining configuration once in Values and referencing it multiple times, you ensure consistent naming, sizing, and configuration across all related resources.
+  <li>Maintainability: when you need to change a configuration that's used in multiple places, you only need to update the Value definition once rather than hunting through the entire template.
+  <li>Environment parameterization: Values enable clean separation between your infrastructure definition and environment-specific configuration, making it easy to deploy the same Blueprint with different settings.
+  <li>Reduced duplication: Instead of repeating the same strings, numbers, or configuration blocks throughout your template, Values eliminate redundancy and potential inconsistencies.
+  <li>Dynamic configuration: Values can be populated from external sources like parameter files, environment variables, or external configuration systems, enabling flexible deployment workflows.
+  <li>Documentation and clarity: well-named Values serve as self-documenting configuration, making it clear what can be customized and what the different options mean.
+</ul>
+<p>This approach transforms Blueprint templates from static infrastructure definitions into flexible, parameterized templates that can adapt to different requirements while maintaining consistency and reducing errors.</p>

@@ -1,0 +1,45 @@
+<h1>References</h1>
+
+<p>Blueprints templates will often include references to resources, outputs, or other known or yet-to-be resolved values. Blueprints accommodates references to scalar values by making one-to-one relationships available in an addressable global scope.</p>
+
+<p>The Blueprints scope is accessed string values in the following format: <code>$.<child>[.name][.property]</code>
+
+child is commonly used as a selector for resources or values (e.g. $.resources.my-resource.id), but may also be used to address a top-level scalar value (e.g. $.blueprintVersion)
+
+Within a given child location, a resource name or property name may be specified
+
+Circular, non-existent, or otherwise unresolvable references will fail Blueprint validation.</p>
+
+<h3>Example</h3>
+
+<p>
+In this case, the update-cdn resource identifies the project it is associated with via resources, and that project's logical name: sanetti-inc.
+</p>
+
+<bp-code>
+  <bp-code-json slot=json>
+  {
+    "resources": [
+      {
+        "name": "sanetti-inc",
+        "type": "sanity.project"
+      },
+      {
+        "name": "update-cdn",
+        "type": "sanity.function.document-mutation",
+        "project": "$.resources.sanetti-inc"
+      }
+    ]
+  }
+  </bp-code-json>
+  <bp-code-ts slot=ts> 
+    import {defineBlueprint, defineDocumentFunction} from '@sanity/blueprints'
+
+    export default defineBlueprint({
+      resources: [
+        defineDocumentFunction({name: 'log-event'}),
+      ],
+    })
+  </bp-code-ts>
+</bp-code>
+

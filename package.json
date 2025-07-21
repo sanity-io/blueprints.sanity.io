@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "arc": {
+    "app": "blueprints",
+    "http": {
+      "/*": {
+        "method": "any",
+        "src": "./"
+      }
+    }
+  },
+  "scripts": {
+    "start": "sandbox --quiet"
+  },
+  "dependencies": {
+    "@architect/deploy": "^5.0.8",
+    "@architect/functions": "^8.1.9",
+    "@architect/sandbox": "^7.1.0",
+    "@enhance/ssr": "^4.0.3"
+  }
+}

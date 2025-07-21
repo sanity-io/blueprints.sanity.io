@@ -1,0 +1,20 @@
+<h1>Parameters</h1>
+
+<p>Parameters are input values that are passed into a Stack at deployment time. They allow you to customize the behavior and configuration of your infrastructure without modifying the underlying template code. Parameters act as the interface between your infrastructure template and the outside world. When you deploy a stack, you provide specific parameter values that the template uses to configure resources. </p>
+
+<p>For example, you might pass parameters like: TODO EXAMPLE
+
+The template then uses these parameter values to configure resources according to your specific requirements.</p>
+
+<h3>Parameters are essential</h3>
+<p>
+<ul>
+  <li>Template flexibility: Parameters make templates reusable across different environments, projects, and use cases. The same template can deploy a small development environment or a large production system based on the parameters provided.
+  <li>Security: sensitive values like passwords, API keys, and certificates can be passed as parameters at deployment time rather than being hardcoded in templates, keeping secrets out of version control.
+  <li>Environment separation: Parameters enable clean separation between infrastructure definitions and environment-specific configuration. You can maintain one template but deploy it with different parameter sets for dev, staging, and production.
+  <li>User input: Parameters provide a controlled way for users to customize deployments without needing to understand the underlying template complexity. They define what can be changed and what should remain consistent.
+  <li>Documentation: well-defined parameters with descriptions serve as documentation for how to use and configure the template, making it accessible to other team members.
+  <li>Integration: Parameters enable integration with CI/CD pipelines, configuration management systems, and deployment tools, allowing automated systems to customize deployments programmatically.
+</ul>
+</p>
+<p>This parameter-driven approach transforms static infrastructure templates into flexible, configurable systems that can adapt to different requirements while maintaining consistency and security.</p>

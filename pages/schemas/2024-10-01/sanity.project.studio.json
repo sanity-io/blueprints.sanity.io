@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https:/blueprints.sanity.io/schemas/2024-10-01/sanity.project.studio.json",
+  "title": "sanity.project.studio",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string"
+    },
+    "dataset": {
+      "type": "string"
+    },
+    "schema": {
+      "type": "object",
+      "properties": {
+        "types": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "description": "Array of schema type definitions"
+        }
+      },
+      "required": ["types"]
+    }
+  },
+  "required": ["name", "title", "project", "dataset", "schema"]
+}
+

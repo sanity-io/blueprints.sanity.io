@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https:/blueprints.sanity.io/schemas/2024-10-01/sanity.project.webhook.json",
+  "type": "object",
+  "title": "sanity.project.webhook",
+  "description": "Sanity webhook configuration",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "Project ID this webhook belongs to",
+      "pattern": "^[a-z0-9]{8}$",
+      "examples": ["abc12345"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable webhook name",
+      "minLength": 1,
+      "maxLength": 100,
+      "examples": ["Site Rebuild", "Content Sync", "Notification Hook"]
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "Optional description of the webhook's purpose",
+      "examples": ["Triggers site rebuild on content changes", null]
+    },
+    "url": {
+      "type": "string",
+      "description": "Endpoint URL where the webhook request is sent",
+      "format": "uri",
+      "examples": [
+        "https://api.mysite.com/webhook",
+        "https://hooks.slack.com/services/...",
+        "https://webhook.site/unique-url"
+      ]
+    },
+    "on": {
+      "type": "array",
+      "description": "Events that trigger the webhook",
+      "items": {
+        "type": "string",
+        "enum": ["create", "update", "delete"]
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "examples": [
+        ["create", "update", "delete"],
+        ["update"],
+        ["create", "delete"]
+      ]
+    },
+    "filter": {
+      "type": ["string", "null"],
+      "description": "GROQ filter specifying which documents trigger the webhook",
+      "examples": [
+        "_type == \"post\"",
+        "_type == \"product\" && store.available == true",
+        "_type in [\"post\", \"page\"]",
+        null
+      ]
+    },
+    "projection": {
+      "type": ["string", "null"],
+      "description": "GROQ projection defining the webhook payload",
+      "examples": [
+        "{ \"id\": _id, \"type\": _type, \"title\": title }",
+        "{ \"slug\": slug.current, \"publishedAt\": publishedAt }",
+        null
+      ]
+    },
+    "status": {
+      "type": "string",
+      "description": "Whether the webhook is enabled or disabled",
+      "enum": ["enabled", "disabled"],
+      "default": "enabled"
+    },
+    "httpMethod": {
+      "type": "string",
+      "description": "HTTP method for the webhook request",
+      "enum": ["POST", "PUT", "PATCH", "DELETE", "GET"],
+      "default": "POST"
+    },
+    "headers": {
+      "type": "object",
+      "description": "Additional HTTP headers to include in the request",
+      "patternProperties": {
+        "^[a-zA-Z][a-zA-Z0-9-_]*$": {
+          "type": "string"
+        }
+      },
+      "examples": [
+        {
+          "Authorization": "Bearer token123",
+          "Content-Type": "application/json",
+          "X-Custom-Header": "value"
+        }
+      ]
+    },
+    "includeDrafts": {
+      "type": "boolean",
+      "description": "Whether to trigger on draft document changes",
+      "default": false
+    },
+    "includeVersions": {
+      "type": "boolean",
+      "description": "Whether to trigger on version document changes",
+      "default": false
+    },
+    "secret": {
+      "type": ["string", "null"],
+      "description": "Secret used to sign webhook requests for verification",
+      "examples": ["webhook-secret-123", null]
+    },
+    "dataset": {
+      "type": "string",
+      "description": "Dataset name this webhook monitors",
+      "pattern": "^[a-z0-9-_]+$",
+      "examples": ["production", "staging", "development"]
+    } 
+  },
+  "required": ["name", "url", "on"],
+  "additionalProperties": false
+}

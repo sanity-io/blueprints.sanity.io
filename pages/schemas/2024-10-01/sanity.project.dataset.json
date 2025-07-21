@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https:/blueprints.sanity.io/schemas/2024-10-01/sanity.project.dataset.json",
+  "title": "sanity.project.dataset",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "aclMode": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string"
+    }
+  },
+  "required": ["name", "displayName", "project", "aclMode"]
+}
+

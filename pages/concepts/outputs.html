@@ -1,0 +1,23 @@
+<h1>Outputs</h1>
+
+Blueprint Outputs are values that a Stack exposes after resources are created or updated. They extract specific information from your infrastructure and make it available for use elsewhere.
+
+Outputs typically include things like unique identifiers, resource IDs, or any other dynamically generated values that you need to reference later. 
+
+<!-- TODO: usage example here -->
+
+<p>
+Outputs are crucial for several reasons:
+<ul>
+  <li>Communicate between Stacks. Outputs enable different stacks to communicate with each other. One stack can output a connection string that another stack can consume, creating loose coupling between infrastructure components.</li>
+  <li>Dynamic value access. Many infrastructure values aren't known until resources are created. Outputs capture these dynamic values and make them accessible.</li>
+  <li>Integration points. Outputs provide clean interfaces between your infrastructure and applications. Your application deployment pipeline can query outputs to get the Studio URL or GraphQL endpoint it needs.</li>
+  <li>Modular architecture. When using modules or reusable infrastructure components, outputs define the contract of what information the module provides. This makes modules more reusable and predictable.</li>
+  <li>Automation workflows: CI/CD pipelines and automation scripts can use outputs to chain together infrastructure operations. For example, after creating an HTTP Function, you might output the endpoint for subsequent deployment steps.
+  <li>Documentation and visibility: Outputs serve as a form of documentation, clearly showing what important values your infrastructure produces and making them easily discoverable.</li>
+  <li>Configuration Management: applications often need infrastructure details for their configuration. Rather than hardcoding values or manually copying them, outputs provide an automated way to inject infrastructure details into application configs.</li>
+  <li>Debugging and operations: Outputs make it easy to quickly access key infrastructure information during troubleshooting or operational tasks without having to dig through the cloud console.</li>
+</ul>
+<p>
+This creates a clean separation between infrastructure provisioning and consumption, making your overall system more maintainable and automated.
+</p>

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https:/blueprints.sanity.io/schemas/2024-10-01/sanitiy.blueprint.json",
+  "title": "sanity.blueprint",
+  "description": "The top-level Blueprint entity, contains resources, parameters, values, and outputs",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "blueprintVersion": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "resources": {
+      "type": "array",
+      "description": "Collection of cloud resources to be managed by Blueprints",
+      "items": {
+        "type": "object",
+        "description": "Individual cloud resource",
+        "properties": {
+          "name": { "$ref": "#/$defs/name" },
+          "type": { "$ref": "#/$defs/type" }
+        },
+        "required": [ "name", "type" ],
+        "additionalProperties": true
+      }
+    },
+    "values": {
+      "type": "object",
+      "description": "Configurable values to improve template reuse",
+      "additionalProperties": { "$ref": "#/$defs/scalar" }
+    },
+    "parameters": {
+      "type": "array",
+      "description": "Input parameters specified to Blueprint tooling",
+      "items": {
+        "type": "object",
+        "description": "Input parameter",
+        "properties": {
+          "name": { "$ref": "#/$defs/name" },
+          "type": { "enum": [ "arg", "env-var", "stdin", "config" ] },
+          "input": { "type": "string" }
+        },
+        "required": [ "name", "type" ],
+        "additionalProperties": true
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "description": "Outputs to be returned by Blueprints system upon successful deployment for display to the end user",
+      "items": {
+        "type": "object",
+        "description": "Output data",
+        "properties": {
+          "name": { "$ref": "#/$defs/name" },
+          "value": {}
+        },
+        "required": [ "name", "value" ],
+        "additionalProperties": false
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "User metadata, ignored by Blueprints systems and validation"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-zA-Z][a-zA-Z0-9-_]*(?<![-_])$"
+    },
+    "type": {
+      "type": "string",
+      "pattern": "^[a-zA-Z]([a-zA-Z0-9-_]+\\.?)*(?<![-_\\.])$"
+    },
+    "scalar": { "anyOf": [
+      { "type": "string" },
+      { "type": "number" }
+    ]}
+  }
+}

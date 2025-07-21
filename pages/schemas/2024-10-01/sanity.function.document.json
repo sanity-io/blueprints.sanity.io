@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://blueprints.sanity.io/schemas/2024-10-01/sanity.function.document.json",
+  "title": "sanity.function.document",
+  "description": "A Sanity Function that is invoked upon document mutations",
+  "type": "object",
+  "properties": {
+    "_type": { "enum": ["sanity.function.document"] },
+    "src": {
+      "type": "string"
+    },
+    "event": { "$ref": "/schemas/event" },
+    "enabled": { "type": "boolean" },
+    "memory": { "type": "number" },
+    "timeout": { "type": "number" },
+    "env": { "type": "object" }
+  },
+  "required": ["_type", "src", "event"],
+  "$defs": {
+    "event": {
+      "$id": "https://sanity.io/blueprints/schema/sanity.function.mutation.event",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "properties": {
+        "on": {"type": "array"},
+        "filter": {"type": "string"},
+        "projection": {"type": "string"},
+        "drafts": { "type": "boolean" },
+        "datasets": { "type": "array" }
+      },
+      "required": ["filter", "projection"]
+    }
+  }
+}

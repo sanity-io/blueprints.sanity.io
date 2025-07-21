@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https:/blueprints.sanity.io/schemas/2024-10-01/sanity.project.json",
+  "type": "object",
+  "title": "sanity.project",
+  "description": "Projects are collections of resources and a permissions boundary",
+  "properties": {
+    "displayName": {
+      "type": "string",
+      "description": "Human-readable project name",
+      "minLength": 1,
+      "maxLength": 100,
+      "examples": ["My Blog", "E-commerce Site", "Portfolio"]
+    },
+    "studioHost": {
+      "type": "string",
+      "description": "Custom studio host URL",
+      "format": "hostname"
+    }
+  },
+  "required": ["displayName"],
+  "additionalProperties": false
+}

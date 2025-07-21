@@ -1,0 +1,33 @@
+<h1>Stacks</h1>
+<p>
+In infrastructure-as-code, a stack is a collection of resources that are managed together as a single unit. Think of it as a logical grouping or container that holds related infrastructure components and manages their lifecycle collectively.
+</p>
+<p>
+A stack typically represents a complete environment or a logically related set of infrastructure. For example, you might have a stack that includes:
+<ul>
+  <li>Studio for Content Editors</li>
+  <li>Dataset</li>
+  <li>Webhook</li>
+</ul>
+All working together to support a particular use case.
+</p>
+
+<h3>Benefits of Stacks</h3>
+<p>
+<ul>
+  <li>Lifecycle Management: You can create, update, or destroy an entire stack as one atomic operation. This means you can spin up a complete environment with a single command, or tear it down just as easily.
+  <li>Isolation: Stacks provide boundaries between different environments or applications. Your development stack is completely separate from your production stack, preventing accidental changes from affecting the wrong environment.
+  <li>Dependency Tracking: Blueprints understands the relationships between resources within a stack and can manage dependencies automatically. It knows to create the Project before the Dataset, for instance.
+  <li>Rollback Capabilities: If an update fails, you can roll back the entire stack to its previous working state, ensuring your infrastructure remains in a known good configuration.
+  <li>Environment Consistency: You can use the same stack definition to create identical environments for development, testing, and production, just with different parameter values.
+  <li>Resource Organization: Stacks help organize complex infrastructure into manageable chunks. Rather than having hundreds of individual resources scattered around, you group related ones together logically.
+  <li>Permission and Access Control: You can apply security policies and access controls at the stack level, making it easier to manage who can modify which parts of your infrastructure.
+</ul>
+This stack-based approach transforms infrastructure management from dealing with individual components to orchestrating complete, cohesive systems.
+</p>
+
+<h3>Deploying your first Stack</h3>
+<p>
+<ol>
+  <li>Step 1: create a new project</li>
+  <li>Deploy your first stack</li>
