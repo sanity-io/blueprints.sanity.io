@@ -1,4 +1,4 @@
-export default function debug ({ html, state }) {
+export default function code ({ html, state }) {
   return html`
     <input type=radio id="ts-${state.instanceID}" name=tab value=ts checked>
     <label for="ts-${state.instanceID}">TS</label>

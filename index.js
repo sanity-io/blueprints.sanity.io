@@ -5,7 +5,21 @@ import render from './ui.js'
 const cache = {} // cache file reads between coldstarts
 
 /** app router */
-export let handler = arc.http(async function router (req) {
+export let handler = arc.http(json, html)
+
+async function json (req) {
+  let isJSON = req.rawPath.includes('.json')
+  if (!isJSON) return
+  let json = fs.readFileSync(join(process.cwd(), 'pages', req.rawPath)).toString()
+  return { 
+    statusCode: 200,
+    isBase64Encoded: false,
+    headers: { 'content-type': 'application/json' },
+    body: json 
+  }
+}
+
+async function html (req) {
   let path = req.path === '/' ? 'concepts/index.html' : req.path + '.html'
   if (!cache[req.rawPath]) {
     cache[req.rawPath] = 'not found'
@@ -24,4 +38,4 @@ export let handler = arc.http(async function router (req) {
   return { 
     html: render({ html: cache[req.rawPath], state: { path: req.rawPath }}) 
   }
-})
+}

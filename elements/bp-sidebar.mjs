@@ -30,10 +30,10 @@ export default function sidebar ({html, state}) {
       <hr>
       <a ${active('/reference/resources/sanity.function.document')}><code>sanity.function.document</code></a>
       <a ${active('/reference/resources/sanity.function.cron')}><code>sanity.function.cron</code></a>
-      <a ${active('/reference/resources/sanity.function.https')}><code>sanity.function.https</code></a>
-      <a ${active('/reference/resources/sanity.function.wss')}><code>sanity.function.wss</code></a>
       <a ${active('/reference/resources/sanity.function.event')}><code>sanity.function.event</code></a>
       <a ${active('/reference/resources/sanity.function.queue')}><code>sanity.function.queue</code></a>
+      <a ${active('/reference/resources/sanity.function.https')}><code>sanity.function.https</code></a>
+      <a ${active('/reference/resources/sanity.function.wss')}><code>sanity.function.wss</code></a>
       <br>
       
       <!--
