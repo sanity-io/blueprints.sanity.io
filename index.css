@@ -1,3 +1,7 @@
+body {
+  color: var(--sanityBlack);
+}
+
 a {
   color: var(--blue500);
 }
@@ -15,6 +19,10 @@ code {
   font-size: 0.875em;
 }
 
+:is(p, ul, ol) ~ :is(p, ul, ul) {
+  margin-block-start: 1lh;
+}
+
 bp-layout {
   display: grid;
   gap: var(--space4);
@@ -24,6 +32,7 @@ bp-layout {
     'debug debug';
   max-inline-size: 1200px;
   margin-inline: auto;
+  padding: var(--space0);
 }
 
 bp-layout > nav {

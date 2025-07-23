@@ -1,37 +1,66 @@
-<h1>Resources</h1> 
+<bp-h1>Resources</bp-h1>
 
-<p>Blueprint resources are the fundamental building blocks that represent infrastructure components you want to create, configure, and manage. These can include Studio, Dataset, Webhook, Functions, and many other infrastructure primitives.</p>
+<p>
+    Blueprint resources are the fundamental building blocks that represent
+    infrastructure components you want to create, configure, and manage. These
+    can include Studio, Dataset, Webhook, Functions, and many other
+    infrastructure primitives.
+</p>
 
 <p>Resources are defined declaratively with either TypeScript or plain JSON:</p>
 
 <bp-code>
-  <bp-code-json slot=json>
-    {
-      "resources": [{ 
-        "name": "log-event", 
-        "type": "sanity.function.document" 
-      ]}
-    }
-  </bp-code-json>
-  <bp-code-ts slot=ts> 
-    import {defineBlueprint, defineDocumentFunction} from '@sanity/blueprints'
-
-    export default defineBlueprint({
-      resources: [
-        defineDocumentFunction({name: 'log-event'}),
-      ],
-    })
-  </bp-code-ts>
+    <bp-code-json slot="json">
+        { "resources": [{ "name": "log-event", "type":
+        "sanity.function.document" ]} }
+    </bp-code-json>
+    <bp-code-ts slot="ts">
+        import {defineBlueprint, defineDocumentFunction} from
+        '@sanity/blueprints' export default defineBlueprint({ resources: [
+        defineDocumentFunction({name: 'log-event'}), ], })
+    </bp-code-ts>
 </bp-code>
 
+<p>
+    Resources move infrastructure management from a manual, error-prone process
+    into a systematic, reliable engineering practice.
+</p>
 
-<p>Resources move infrastructure management from a manual, error-prone process into a systematic, reliable engineering practice.</p>
-
-  <li>Consistency and Repeatability: Resources ensure that infrastructure is deployed identically across different environments (development, staging, production). The same resource definition will create the same infrastructure every time.
-  <li>Version Control: Since resources are defined in code, you can track changes, review modifications, and roll back to previous versions just like application code.
-  <li>Automation: Resources enable fully automated infrastructure provisioning and updates, eliminating manual configuration steps that are prone to human error.
-  <li>Documentation: The resource definitions serve as living documentation of your infrastructure, making it clear what components exist and how they're configured.
-  <li>Dependency Management: IaC tools understand relationships between resources and can provision them in the correct order, handling dependencies automatically.
-  <li>Scalability: Resources can be parameterized and templated, making it easy to scale infra up or down or deploy similar environments with different configurations.
-  <li>Cost Management: By defining resources explicitly, you have better visibility into what infrastructure you're running and can more easily optimize costs.
-
+<ul>
+    <li>
+        Consistency and Repeatability: Resources ensure that infrastructure is
+        deployed identically across different environments (development,
+        staging, production). The same resource definition will create the same
+        infrastructure every time.
+    </li>
+    <li>
+        Version Control: Since resources are defined in code, you can track
+        changes, review modifications, and roll back to previous versions just
+        like application code.
+    </li>
+    <li>
+        Automation: Resources enable fully automated infrastructure provisioning
+        and updates, eliminating manual configuration steps that are prone to
+        human error.
+    </li>
+    <li>
+        Documentation: The resource definitions serve as living documentation of
+        your infrastructure, making it clear what components exist and how
+        they're configured.
+    </li>
+    <li>
+        Dependency Management: IaC tools understand relationships between
+        resources and can provision them in the correct order, handling
+        dependencies automatically.
+    </li>
+    <li>
+        Scalability: Resources can be parameterized and templated, making it
+        easy to scale infra up or down or deploy similar environments with
+        different configurations.
+    </li>
+    <li>
+        Cost Management: By defining resources explicitly, you have better
+        visibility into what infrastructure you're running and can more easily
+        optimize costs.
+    </li>
+</ul>
