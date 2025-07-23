@@ -15,47 +15,33 @@ code {
   font-size: 0.875em;
 }
 
-bp-layout section {
-  display: flex;
+bp-layout {
+  display: grid;
+  gap: var(--space4);
+  grid-template-areas:
+    'header header'
+    'sidebar main'
+    'debug debug';
+  max-inline-size: 1200px;
+  margin-inline: auto;
 }
 
-bp-sidebar h3 {
-  text-transform: uppercase;
-  margin: 0;
-  padding: 5px;
+bp-layout > nav {
+  grid-area: header;
 }
 
-bp-sidebar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+bp-sidebar {
+  grid-area: sidebar;
+  background-color: var(--gray100);
+  border-radius: var(--borderRadius1);
 }
 
-bp-layout main {
-  flex-grow: 1;
-  padding: 35px;
-  background: #f2f2f2;
-  color: #333;
+bp-layout > main {
+  grid-area: main;
 }
 
-bp-layout main h1 {
-  font-size: 3em;
-}
-
-bp-layout main h1,
-bp-layout main h3,
-bp-layout main p {
-  padding: 0;
-  margin: 0 0 20px 0;
-}
-
-bp-layout main p {
-  font-size: 1em;
-}
-
-bp-layout main li {
-  margin: 0 0 0 15px;
-  padding: 0;
+bp-debug {
+  grid-area: debug;
 }
 
 bp-code {
