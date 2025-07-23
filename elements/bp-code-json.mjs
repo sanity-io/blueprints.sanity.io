@@ -1,3 +1,3 @@
 export default function json ({ html, state }) {
-  return html`<pre><slot></slot></pre>`
+  return html`<pre class=langauge-json><slot></slot></pre>`
 }

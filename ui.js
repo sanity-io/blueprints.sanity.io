@@ -1,5 +1,6 @@
 import * as prism from 'prismjs'
 import 'prismjs/components/prism-json.js'
+import 'prismjs/components/prism-typescript.js'
 import {parse, serialize} from 'parse5'
 import enhance from '@enhance/ssr'
 import fs from 'node:fs'
@@ -17,6 +18,13 @@ import sidebar from './elements/bp-sidebar.mjs'
 
 let css = false // only read once on coldstart
 let paramour = false // only read once on coldstart
+let languages = {
+  ts: Prism.languages.typescript,
+  json: Prism.languages.json,
+  javascript: Prism.languages.javascript,
+  html: Prism.languages.html,
+  css: Prism.languages.css,
+}
 
 export default function render({ html, state }) {
   if (!css) css = fs.readFileSync(join(process.cwd(), 'index.css')).toString()
@@ -36,11 +44,11 @@ export default function render({ html, state }) {
     },
     initialState: { ...state },
   })
-  return wrap({ css, body: h`<bp-layout>${html}</bp-layout>` })
+  return wrap({ css, paramour, body: h`<bp-layout>${html}</bp-layout>` })
 }
 
 /** wraps rendered html in the minimum html document envelope */
-function wrap({ title = 'Blueprints', css = '', body = '' }) {
+function wrap({ title = 'Blueprints', css = '', paramour = '', body = '' }) {
   return `<!doctype html>
 <html lang=en>
 <head>
@@ -60,18 +68,19 @@ function highlight (html) {
   function walk(nodes) {
     for (let n of nodes) {
       if (n.childNodes) walk(n.childNodes)
+      let lang = false
       if (n.nodeName === 'bp-jsonschema' && n.tagName === 'bp-jsonschema') {
-        // find the pre tag
+        lang = 'json' //n.attrs.find(a => a.name = 'type').value
+      }
+      if (n.nodeName === 'bp-code-ts' && n.tagName === 'bp-code-ts') {
+        lang = 'ts'
+      }
+      if (n.nodeName === 'bp-code-json' && n.tagName === 'bp-code-json') {
+        lang = 'json'
+      }
+      if (lang) {
         let pre = n.childNodes.find(t=> t.tagName === 'pre')
         let raw = pre.childNodes[0].value
-        let languages = {
-          typescript: Prism.languages.typescript,
-          json: Prism.languages.json,
-          javascript: Prism.languages.javascript,
-          html: Prism.languages.html,
-          css: Prism.languages.css,
-        }
-        let lang = 'json' //n.attrs.find(a => a.name = 'type').value
         let html = Prism.highlight(raw, languages[lang], lang)
         let nodes = parse(html).childNodes[0].childNodes.find(n => n.nodeName === 'body')
         pre.childNodes = nodes.childNodes

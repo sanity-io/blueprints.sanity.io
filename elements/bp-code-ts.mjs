@@ -1,3 +1,3 @@
 export default function ts ({ html, state }) {
-  return html`<pre><slot></slot></pre>`
+  return html`<pre class=langauge-typescript><slot></slot></pre>`
 }
