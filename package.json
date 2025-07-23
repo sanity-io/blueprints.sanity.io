@@ -10,7 +10,12 @@
     }
   },
   "scripts": {
-    "start": "sandbox --quiet"
+    "start": "sandbox --quiet",
+    "test": "node --test tests/**/*.test.js",
+    "test:watch": "node --test --watch tests/**/*.test.js",
+    "test:coverage": "node --test --experimental-test-coverage tests/**/*.test.js",
+    "test:unit": "node --test tests/unit/**/*.test.js",
+    "test:integration": "node --test tests/integration/**/*.test.js"
   },
   "dependencies": {
     "@architect/deploy": "^5.0.8",
