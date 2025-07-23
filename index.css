@@ -1,35 +1,22 @@
-body { margin: 0; padding: 0; }
-hr { border: 1px dotted lightgrey; }
+a {
+  color: var(--blue500);
+}
 
-bp-layout h1 {
-  padding: 10px;
-  margin: 0;
+a:hover {
+  text-decoration: underline;
+}
+
+a.active {
+  background-color: var(--blue500);
+  color: white;
+}
+
+code {
+  font-size: 0.875em;
 }
 
 bp-layout section {
   display: flex;
-}
-
-bp-sidebar {
-  font-size: small;
-  font-family: sans-serif;
-  padding: 0 0 0 15px;
-  margin: 0 15px 0 0;
-}
-
-bp-sidebar a {
-  display: block;
-  padding: 7px 0 7px 15px;
-  text-decoration: none;
-}
-
-bp-sidebar a:hover {
-  text-decoration: underline;
-}
-
-bp-sidebar a.active {
-  background: blue;
-  color: white;
 }
 
 bp-sidebar h3 {
@@ -44,11 +31,10 @@ bp-sidebar ul {
   padding: 0;
 }
 
-bp-layout main { 
-  flex-grow: 1; 
-  padding: 35px; 
-  background: #f2f2f2; 
-  font-family: sans-serif;
+bp-layout main {
+  flex-grow: 1;
+  padding: 35px;
+  background: #f2f2f2;
   color: #333;
 }
 
@@ -68,18 +54,21 @@ bp-layout main p {
 }
 
 bp-layout main li {
-  margin: 0 0 0 15px; padding: 0;
+  margin: 0 0 0 15px;
+  padding: 0;
 }
 
-bp-code { 
+bp-code {
   display: flex;
   flex-wrap: wrap;
   margin: 2rem auto;
   max-width: 65ch;
-} 
+}
 
-bp-code input { display: none; }
-      
+bp-code input {
+  display: none;
+}
+
 bp-code label {
   border: 1px solid green;
   cursor: pointer;
@@ -93,7 +82,8 @@ bp-code label {
   width: auto;
 }
 
-bp-code-ts, bp-code-json {
+bp-code-ts,
+bp-code-json {
   display: none;
   flex-grow: 1;
   padding: 0;
@@ -101,13 +91,13 @@ bp-code-ts, bp-code-json {
   width: 100%;
 }
 
-bp-code input[type="radio"]:checked + label, 
-bp-code input[type="radio"]:checked + label {
+bp-code input[type='radio']:checked + label,
+bp-code input[type='radio']:checked + label {
   background: blue;
   color: white;
 }
-        
-bp-code input[type="radio"]:checked + label + bp-code-ts, 
-bp-code input[type="radio"]:checked + label + bp-code-json {
+
+bp-code input[type='radio']:checked + label + bp-code-ts,
+bp-code input[type='radio']:checked + label + bp-code-json {
   display: block;
 }
