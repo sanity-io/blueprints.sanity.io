@@ -16,6 +16,7 @@
     "@architect/deploy": "^5.0.8",
     "@architect/functions": "^8.1.9",
     "@architect/sandbox": "^7.1.0",
-    "@enhance/ssr": "^4.0.3"
+    "@enhance/ssr": "^4.0.3",
+    "prismjs": "^1.30.0"
   }
 }
