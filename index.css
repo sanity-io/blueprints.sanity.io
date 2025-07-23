@@ -1,85 +1,69 @@
-body { margin: 0; padding: 0; }
-hr { border: 1px dotted lightgrey; }
-
-bp-layout h1 {
-  padding: 10px;
-  margin: 0;
+body {
+  color: var(--sanityBlack);
 }
 
-bp-layout section {
-  display: flex;
+a {
+  color: var(--blue500);
 }
 
-bp-sidebar {
-  font-size: small;
-  font-family: sans-serif;
-  padding: 0 0 0 15px;
-  margin: 0 15px 0 0;
-}
-
-bp-sidebar a {
-  display: block;
-  padding: 7px 0 7px 15px;
-  text-decoration: none;
-}
-
-bp-sidebar a:hover {
+a:hover {
   text-decoration: underline;
 }
 
-bp-sidebar a.active {
-  background: blue;
+a.active {
+  background-color: var(--blue500);
   color: white;
 }
 
-bp-sidebar h3 {
-  text-transform: uppercase;
-  margin: 0;
-  padding: 5px;
+code {
+  font-size: 0.875em;
 }
 
-bp-sidebar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+:is(p, ul, ol) ~ :is(p, ul, ul) {
+  margin-block-start: 1lh;
 }
 
-bp-layout main { 
-  flex-grow: 1; 
-  padding: 35px; 
-  background: #f2f2f2; 
-  font-family: sans-serif;
-  color: #333;
+bp-layout {
+  display: grid;
+  gap: var(--space4);
+  grid-template-areas:
+    'header header'
+    'sidebar main'
+    'debug debug';
+  max-inline-size: 1200px;
+  margin-inline: auto;
+  padding: var(--space0);
 }
 
-bp-layout main h1 {
-  font-size: 3em;
+bp-layout > nav {
+  grid-area: header;
 }
 
-bp-layout main h1,
-bp-layout main h3,
-bp-layout main p {
-  padding: 0;
-  margin: 0 0 20px 0;
+bp-sidebar {
+  grid-area: sidebar;
+  background-color: var(--gray100);
+  border-radius: var(--borderRadius1);
 }
 
-bp-layout main p {
-  font-size: 1em;
+bp-layout > main {
+  grid-area: main;
 }
 
-bp-layout main li {
-  margin: 0 0 0 15px; padding: 0;
+bp-debug {
+  grid-area: debug;
 }
 
-bp-code { 
+bp-code {
   display: flex;
   flex-wrap: wrap;
   margin: 2rem auto;
   max-width: 65ch;
-} 
+}
 
-bp-code input { display: none; }
-      
+bp-code input {
+  display: none;
+}
+
 bp-code label {
   border: 1px solid green;
   cursor: pointer;
@@ -93,7 +77,8 @@ bp-code label {
   width: auto;
 }
 
-bp-code-ts, bp-code-json {
+bp-code-ts,
+bp-code-json {
   display: none;
   flex-grow: 1;
   padding: 0;
@@ -101,13 +86,13 @@ bp-code-ts, bp-code-json {
   width: 100%;
 }
 
-bp-code input[type="radio"]:checked + label, 
-bp-code input[type="radio"]:checked + label {
+bp-code input[type='radio']:checked + label,
+bp-code input[type='radio']:checked + label {
   background: blue;
   color: white;
 }
-        
-bp-code input[type="radio"]:checked + label + bp-code-ts, 
-bp-code input[type="radio"]:checked + label + bp-code-json {
+
+bp-code input[type='radio']:checked + label + bp-code-ts,
+bp-code input[type='radio']:checked + label + bp-code-json {
   display: block;
 }

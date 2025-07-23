@@ -1,4 +1,4 @@
-<h1>References</h1>
+<bp-h1>References</bp-h1>
 
 <p>Blueprints templates will often include references to resources, outputs, or other known or yet-to-be resolved values. Blueprints accommodates references to scalar values by making one-to-one relationships available in an addressable global scope.</p>
 
@@ -10,7 +10,7 @@ Within a given child location, a resource name or property name may be specified
 
 Circular, non-existent, or otherwise unresolvable references will fail Blueprint validation.</p>
 
-<h3>Example</h3>
+<bp-h2>Example</bp-h2>
 
 <p>
 In this case, the update-cdn resource identifies the project it is associated with via resources, and that project's logical name: sanetti-inc.
@@ -32,7 +32,7 @@ In this case, the update-cdn resource identifies the project it is associated wi
     ]
   }
   </bp-code-json>
-  <bp-code-ts slot=ts> 
+  <bp-code-ts slot=ts>
     import {defineBlueprint, defineDocumentFunction} from '@sanity/blueprints'
 
     export default defineBlueprint({
@@ -42,4 +42,3 @@ In this case, the update-cdn resource identifies the project it is associated wi
     })
   </bp-code-ts>
 </bp-code>
-
