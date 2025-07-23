@@ -19,6 +19,11 @@ code {
   font-size: 0.875em;
 }
 
+
+@view-transition {
+  navigation: auto;
+}
+
 :is(p, ul, ol) ~ :is(p, ul, ul) {
   margin-block-start: 1lh;
 }

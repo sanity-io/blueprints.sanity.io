@@ -18,27 +18,27 @@ In this case, the update-cdn resource identifies the project it is associated wi
 
 <bp-code>
   <bp-code-json slot=json>
-  {
-    "resources": [
-      {
-        "name": "sanetti-inc",
-        "type": "sanity.project"
-      },
-      {
-        "name": "update-cdn",
-        "type": "sanity.function.document-mutation",
-        "project": "$.resources.sanetti-inc"
-      }
-    ]
-  }
+{
+  "resources": [
+    {
+      "name": "sanetti-inc",
+      "type": "sanity.project"
+    },
+    {
+      "name": "update-cdn",
+      "type": "sanity.function.document-mutation",
+      "project": "$.resources.sanetti-inc"
+    }
+  ]
+}
   </bp-code-json>
   <bp-code-ts slot=ts>
-    import {defineBlueprint, defineDocumentFunction} from '@sanity/blueprints'
+import {defineBlueprint, defineDocumentFunction} from '@sanity/blueprints'
 
-    export default defineBlueprint({
-      resources: [
-        defineDocumentFunction({name: 'log-event'}),
-      ],
-    })
+export default defineBlueprint({
+  resources: [
+    defineDocumentFunction({name: 'log-event'}),
+  ],
+})
   </bp-code-ts>
 </bp-code>
