@@ -1,7 +1,7 @@
 import {join} from 'node:path'
 import {readFileSync} from 'node:fs'
 import arc from '@architect/functions'
-import render from './ui.js'
+import render from './ui/index.js'
 
 const cache = {} // cache file reads between coldstarts
 

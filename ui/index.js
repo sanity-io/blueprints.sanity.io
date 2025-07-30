@@ -31,9 +31,9 @@ const languages = {
 }
 
 export default function render({ html, state }) {
-  if (!css) css = fs.readFileSync(join(process.cwd(), 'index.css')).toString()
+  if (!css) css = fs.readFileSync(join(process.cwd(), 'ui', 'index.css')).toString()
   if (!paramour)
-    paramour = fs.readFileSync(join(process.cwd(), 'paramour.css')).toString()
+    paramour = fs.readFileSync(join(process.cwd(), 'ui', 'paramour.css')).toString()
   const h = enhance({
     elements: {
       'bp-h1': h1,
