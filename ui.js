@@ -1,5 +1,5 @@
 // deps
-import * as prism from 'prismjs'
+import 'prismjs'
 import 'prismjs/components/prism-json.js'
 import 'prismjs/components/prism-typescript.js'
 import {parse, serialize} from 'parse5'
@@ -22,19 +22,19 @@ import sidebar from './elements/bp-sidebar.mjs'
 
 let css = false // only read once on coldstart
 let paramour = false // only read once on coldstart
-let languages = {
+const languages = {
   ts: Prism.languages.typescript,
   json: Prism.languages.json,
   javascript: Prism.languages.javascript,
   html: Prism.languages.html,
-  css: Prism.languages.css,
+  css: Prism.languages.css
 }
 
 export default function render({ html, state }) {
   if (!css) css = fs.readFileSync(join(process.cwd(), 'index.css')).toString()
   if (!paramour)
     paramour = fs.readFileSync(join(process.cwd(), 'paramour.css')).toString()
-  let h = enhance({
+  const h = enhance({
     elements: {
       'bp-h1': h1,
       'bp-h2': h2,
@@ -44,9 +44,9 @@ export default function render({ html, state }) {
       'bp-code-json': json,
       'bp-code-ts': ts,
       'bp-jsonschema': jsonschema,
-      'bp-debug': debug,
+      'bp-debug': debug
     },
-    initialState: { ...state },
+    initialState: { ...state }
   })
   return wrap({ css, paramour, body: h`<bp-layout>${html}</bp-layout>` })
 }
@@ -68,9 +68,9 @@ function wrap({ title = 'Blueprints', css = '', paramour = '', body = '' }) {
 
 /** highlight rendered markup */
 function highlight (html) {
-  let doc = parse(html)
+  const doc = parse(html)
   function walk(nodes) {
-    for (let n of nodes) {
+    for (const n of nodes) {
       if (n.childNodes) walk(n.childNodes)
       let lang = false
       if (n.nodeName === 'bp-jsonschema' && n.tagName === 'bp-jsonschema') {
@@ -83,10 +83,10 @@ function highlight (html) {
         lang = 'json'
       }
       if (lang) {
-        let pre = n.childNodes.find(t=> t.tagName === 'pre')
-        let raw = pre.childNodes[0].value
-        let html = Prism.highlight(raw, languages[lang], lang)
-        let nodes = parse(html).childNodes[0].childNodes.find(n => n.nodeName === 'body')
+        const pre = n.childNodes.find(t => t.tagName === 'pre')
+        const raw = pre.childNodes[0].value
+        const html = Prism.highlight(raw, languages[lang], lang)
+        const nodes = parse(html).childNodes[0].childNodes.find(n => n.nodeName === 'body')
         pre.childNodes = nodes.childNodes
       }
     }

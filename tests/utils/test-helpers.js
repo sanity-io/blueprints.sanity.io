@@ -1,4 +1,4 @@
-import { strict as assert } from 'node:assert';
+import { strict as assert } from 'node:assert'
 
 /**
  * Utility functions for testing Enhance components
@@ -15,16 +15,16 @@ export function renderElement(elementFunction, props = {}) {
   const mockContext = { 
     html: (strings, ...values) => {
       // Simple template literal implementation
-      let result = strings[0];
+      let result = strings[0]
       for (let i = 0; i < values.length; i++) {
-        result += String(values[i]) + strings[i + 1];
+        result += String(values[i]) + strings[i + 1]
       }
-      return result;
+      return result
     }
-  };
+  }
   
   // Call the element function with mock context and props
-  return elementFunction.call(mockContext, props);
+  return elementFunction.call(mockContext, props)
 }
 
 /**
@@ -37,7 +37,7 @@ export function createMockState(overrides = {}) {
     path: '/', 
     store: {},
     ...overrides 
-  };
+  }
 }
 
 /**
@@ -49,7 +49,7 @@ export function assertHTMLStructure(html, expectedStructure) {
   assert.ok(
     html.includes(expectedStructure), 
     `HTML should contain: ${expectedStructure}\nActual HTML: ${html}`
-  );
+  )
 }
 
 /**
@@ -62,8 +62,8 @@ export function assertAccessibilityAttributes(html, expectedAttributes) {
     assert.ok(
       html.includes(attr),
       `HTML should contain accessibility attribute: ${attr}`
-    );
-  });
+    )
+  })
 }
 
 /**
@@ -79,7 +79,7 @@ export function createMockRequest(overrides = {}) {
     headers: {},
     body: '',
     ...overrides
-  };
+  }
 }
 
 /**
@@ -92,23 +92,23 @@ export function createMockResponse() {
     headers: {},
     body: '',
     isBase64Encoded: false
-  };
+  }
   
   return {
     ...response,
     assertStatus: (expectedStatus) => {
-      assert.strictEqual(response.statusCode, expectedStatus);
+      assert.strictEqual(response.statusCode, expectedStatus)
     },
     assertHeader: (headerName, expectedValue) => {
-      assert.strictEqual(response.headers[headerName], expectedValue);
+      assert.strictEqual(response.headers[headerName], expectedValue)
     },
     assertBodyContains: (expectedContent) => {
       assert.ok(
         response.body.includes(expectedContent),
         `Response body should contain: ${expectedContent}`
-      );
+      )
     }
-  };
+  }
 }
 
 /**
@@ -117,11 +117,11 @@ export function createMockResponse() {
  */
 export function assertValidHTMLDocument(html) {
   // Check for basic HTML document structure
-  assert.ok(html.includes('<!DOCTYPE html>'), 'Should have DOCTYPE declaration');
-  assert.ok(html.includes('<html'), 'Should have html tag');
-  assert.ok(html.includes('<head>'), 'Should have head section');
-  assert.ok(html.includes('<body>'), 'Should have body section');
-  assert.ok(html.includes('</html>'), 'Should close html tag');
+  assert.ok(html.includes('<!DOCTYPE html>'), 'Should have DOCTYPE declaration')
+  assert.ok(html.includes('<html'), 'Should have html tag')
+  assert.ok(html.includes('<head>'), 'Should have head section')
+  assert.ok(html.includes('<body>'), 'Should have body section')
+  assert.ok(html.includes('</html>'), 'Should close html tag')
 }
 
 /**
@@ -133,9 +133,9 @@ export function assertCodeHighlighting(html, language) {
   assert.ok(
     html.includes(`language-${language}`),
     `Should contain language class: language-${language}`
-  );
+  )
   assert.ok(
     html.includes('<pre') || html.includes('<code'),
     'Should contain code or pre elements'
-  );
+  )
 }

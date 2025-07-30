@@ -6,21 +6,21 @@
 // Set up global test environment
 global.setupTestEnvironment = () => {
   // Configure any global test settings here
-  process.env.NODE_ENV = 'test';
+  process.env.NODE_ENV = 'test'
   
   // Suppress console output during tests unless explicitly needed
   if (!process.env.VERBOSE_TESTS) {
-    const originalConsole = { ...console };
-    console.log = () => {};
-    console.info = () => {};
-    console.warn = () => {};
+    const originalConsole = { ...console }
+    console.log = () => {}
+    console.info = () => {}
+    console.warn = () => {}
     
     // Restore console for test failures
     global.restoreConsole = () => {
-      Object.assign(console, originalConsole);
-    };
+      Object.assign(console, originalConsole)
+    }
   }
-};
+}
 
 // Initialize test environment
-global.setupTestEnvironment();
+global.setupTestEnvironment()

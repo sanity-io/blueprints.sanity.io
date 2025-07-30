@@ -1,16 +1,17 @@
 import {join} from 'node:path'
+import {readFileSync} from 'node:fs'
 import arc from '@architect/functions'
 import render from './ui.js'
 
 const cache = {} // cache file reads between coldstarts
 
 /** app router */
-export let handler = arc.http(json, html)
+export const handler = arc.http(json, html)
 
 async function json (req) {
-  let isJSON = req.rawPath.includes('.json')
+  const isJSON = req.rawPath.includes('.json')
   if (!isJSON) return
-  let json = fs.readFileSync(join(process.cwd(), 'pages', req.rawPath)).toString()
+  const json = readFileSync(join(process.cwd(), 'pages', req.rawPath)).toString()
   return { 
     statusCode: 200,
     isBase64Encoded: false,
@@ -20,11 +21,11 @@ async function json (req) {
 }
 
 async function html (req) {
-  let path = req.path === '/' ? 'concepts/index.html' : req.path + '.html'
+  const path = req.path === '/' ? 'concepts/index.html' : req.path + '.html'
   if (!cache[req.rawPath]) {
     cache[req.rawPath] = 'not found'
     try {
-      cache[req.rawPath] = fs.readFileSync(join(process.cwd(), 'pages', path)).toString()
+      cache[req.rawPath] = readFileSync(join(process.cwd(), 'pages', path)).toString()
     }
     catch (e) {
       if (e.path.includes('com.chrome.devtools.json') === false) 
