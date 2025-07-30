@@ -6,19 +6,20 @@
   "type": "object",
   "properties": {
     "type": { "enum": ["sanity.function.cron"] },
-    "name": { "type": "string" },
-    "src": { "type": "string" },
-    "event": { "$ref": "/schemas/event" },
-    "enabled": { "type": "boolean" },
-    "memory": { "type": "number" },
-    "timeout": { "type": "number" },
-    "env": { "type": "object" }
+    "name": { "type": "string", "description": "Function name" },
+    "src": { "type": "string", "description": "Source file path" },
+    "event": { "$ref": "#/$defs/event" },
+    "enabled": { "type": "boolean", "description": "Whether function is enabled", "default": true },
+    "memory": { "type": "number", "description": "Memory allocation in MB" },
+    "timeout": { "type": "number", "description": "Timeout in seconds" },
+    "env": { "type": "object", "description": "Environment variables" }
   },
   "required": ["type", "name", "src", "event"],
+  "additionalProperties": false,
   "$defs": {
     "event": {
-      "$id": "https://sanity.io/blueprints/schema/sanity.function.cron.event",
-      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$id": "https://blueprints.sanity.io/schemas/2024-10-01/sanity.function.cron.event",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
         "minute": {"type": "string"},

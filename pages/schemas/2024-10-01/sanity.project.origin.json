@@ -1,13 +1,13 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https:/blueprints.sanity.io/schemas/2024-10-01/sanity.project.origin.json",
-  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://blueprints.sanity.io/schemas/2024-10-01/sanity.project.origin.json",
   "title": "sanity.project.origin",
-  "description": "CORS origins",
+  "description": "CORS origins configuration for a Sanity project",
+  "type": "object",
   "properties": {
     "type": { "enum": ["sanity.project.origin"] },
-    "name": { "type": "string" },
-    "project": { "type": "string" },
+    "name": { "type": "string", "description": "Origin configuration identifier" },
+    "project": { "type": "string", "description": "Project ID this origin configuration belongs to" },
     "origin": {
       "oneOf": [
         {
@@ -42,6 +42,6 @@
       "default": false
     }
   },
-  "required": ["name", "origin", "project"],
+  "required": ["type", "name", "origin", "project"],
   "additionalProperties": false
 }

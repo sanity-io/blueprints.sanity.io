@@ -1,19 +1,23 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https:/blueprints.sanity.io/schemas/2024-10-01/sanity.project.studio.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://blueprints.sanity.io/schemas/2024-10-01/sanity.project.studio.json",
   "title": "sanity.project.studio",
+  "description": "Studio configuration for a Sanity project",
   "type": "object",
   "properties": {
     "type": { "enum": ["sanity.project.studio"] },
-    "name": { "type": "string" },
-    "title": {
-      "type": "string"
+    "name": { "type": "string", "description": "Studio identifier" },
+    "displayName": {
+      "type": "string",
+      "description": "Human-readable studio name"
     },
     "project": {
-      "type": "string"
+      "type": "string",
+      "description": "Project ID this studio belongs to"
     },
     "dataset": {
-      "type": "string"
+      "type": "string",
+      "description": "Dataset name this studio uses"
     },
     "schema": {
       "type": "object",
@@ -29,6 +33,7 @@
       "required": ["types"]
     }
   },
-  "required": ["name", "title", "project", "dataset", "schema"]
+  "required": ["type", "name", "displayName", "project", "dataset", "schema"],
+  "additionalProperties": false
 }
 

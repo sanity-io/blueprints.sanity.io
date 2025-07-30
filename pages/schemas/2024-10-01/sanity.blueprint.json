@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https:/blueprints.sanity.io/schemas/2024-10-01/sanitiy.blueprint.json",
+  "$id": "https://blueprints.sanity.io/schemas/2024-10-01/sanity.blueprint.json",
   "title": "sanity.blueprint",
   "description": "The top-level Blueprint entity, contains resources, parameters, values, and outputs",
   "type": "object",

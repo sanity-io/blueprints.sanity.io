@@ -1,21 +1,26 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https:/blueprints.sanity.io/schemas/2024-10-01/sanity.project.dataset.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://blueprints.sanity.io/schemas/2024-10-01/sanity.project.dataset.json",
   "title": "sanity.project.dataset",
+  "description": "Dataset configuration for a Sanity project",
   "type": "object",
   "properties": {
     "type": { "enum": ["sanity.project.dataset"] },
-    "name": { "type": "string" },
+    "name": { "type": "string", "description": "Dataset identifier" },
     "displayName": {
-      "type": "string"
+      "type": "string",
+      "description": "Human-readable dataset name"
     },
     "aclMode": {
-      "type": "string"
+      "type": "string",
+      "description": "Access control mode for the dataset"
     },
     "project": {
-      "type": "string"
+      "type": "string",
+      "description": "Project ID this dataset belongs to"
     }
   },
-  "required": ["name", "displayName", "project", "aclMode"]
+  "required": ["type", "name", "displayName", "project", "aclMode"],
+  "additionalProperties": false
 }
 

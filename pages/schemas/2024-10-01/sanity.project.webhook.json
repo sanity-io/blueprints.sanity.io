@@ -1,12 +1,12 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https:/blueprints.sanity.io/schemas/2024-10-01/sanity.project.webhook.json",
-  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://blueprints.sanity.io/schemas/2024-10-01/sanity.project.webhook.json",
   "title": "sanity.project.webhook",
-  "description": "Sanity webhook configuration",
+  "description": "Webhook configuration for a Sanity project",
+  "type": "object",
   "properties": {
     "type": { "enum": ["sanity.project.webhook"] },
-    "name": { "type": "string" },
+    "name": { "type": "string", "description": "Webhook identifier" },
     "project": {
       "type": "string",
       "description": "Project ID this webhook belongs to",

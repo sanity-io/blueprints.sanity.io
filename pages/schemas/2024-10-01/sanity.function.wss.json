@@ -1,17 +1,18 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://blueprints.sanity.io/schemas/2024-10-01/sanity.function.https.json",
-  "title": "sanity.function.https",
+  "$id": "https://blueprints.sanity.io/schemas/2024-10-01/sanity.function.wss.json",
+  "title": "sanity.function.wss",
   "description": "A Sanity Function that is invoked asynchronously via Web Socket messages",
   "type": "object",
   "properties": {
     "type": { "enum": ["sanity.function.wss"] },
-    "name": { "type": "string" },
-    "src": { "type": "string" },
-    "enabled": { "type": "boolean" },
-    "memory": { "type": "number" },
-    "timeout": { "type": "number" },
-    "env": { "type": "object" }
+    "name": { "type": "string", "description": "Function name" },
+    "src": { "type": "string", "description": "Source file path" },
+    "enabled": { "type": "boolean", "description": "Whether function is enabled", "default": true },
+    "memory": { "type": "number", "description": "Memory allocation in MB" },
+    "timeout": { "type": "number", "description": "Timeout in seconds" },
+    "env": { "type": "object", "description": "Environment variables" }
   },
-  "required": ["type", "name", "src"]
+  "required": ["type", "name", "src"],
+  "additionalProperties": false
 }

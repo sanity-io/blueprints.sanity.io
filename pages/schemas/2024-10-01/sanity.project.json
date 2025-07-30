@@ -1,12 +1,12 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https:/blueprints.sanity.io/schemas/2024-10-01/sanity.project.json",
-  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://blueprints.sanity.io/schemas/2024-10-01/sanity.project.json",
   "title": "sanity.project",
   "description": "Projects are collections of resources and a permissions boundary",
+  "type": "object",
   "properties": {
     "type": { "enum": ["sanity.project"] },
-    "name": { "type": "string" },
+    "name": { "type": "string", "description": "Project identifier" },
     "displayName": {
       "type": "string",
       "description": "Human-readable project name",
@@ -20,6 +20,6 @@
       "format": "hostname"
     }
   },
-  "required": ["displayName"],
+  "required": ["type", "displayName"],
   "additionalProperties": false
 }
