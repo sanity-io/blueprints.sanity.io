@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://blueprints.sanity.io/schemas/2024-10-01/sanity.function.queue.json",
+  "title": "sanity.function.queue",
+  "description": "A Sanity Function that is invoked asynchronously and scales up with well defined concurrency semantics",
+  "type": "object",
+  "properties": {
+    "type": { "enum": ["sanity.function.queue"] },
+    "name": { "type": "string" },
+    "src": { "type": "string" },
+    "enabled": { "type": "boolean" },
+    "memory": { "type": "number" },
+    "timeout": { "type": "number" },
+    "batchSize": { "type": "number", "description": "number of messages to batch process at a time", "default": 1, "maximum": 10},
+    "batchWindow": { "type": "number", "description": "number of seconds in batch process", "default": 0, "maximum":300 },
+    "env": { "type": "object" }
+  },
+  "required": ["type", "name", "src"]
+}

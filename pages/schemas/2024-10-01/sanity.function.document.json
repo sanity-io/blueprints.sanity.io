@@ -5,17 +5,16 @@
   "description": "A Sanity Function that is invoked upon document mutations",
   "type": "object",
   "properties": {
-    "_type": { "enum": ["sanity.function.document"] },
-    "src": {
-      "type": "string"
-    },
+    "type": { "enum": ["sanity.function.document"] },
+    "name": { "type": "string" },
+    "src": { "type": "string" },
     "event": { "$ref": "/schemas/event" },
     "enabled": { "type": "boolean" },
     "memory": { "type": "number" },
     "timeout": { "type": "number" },
     "env": { "type": "object" }
   },
-  "required": ["_type", "src", "event"],
+  "required": ["type", "name", "src", "event"],
   "$defs": {
     "event": {
       "$id": "https://sanity.io/blueprints/schema/sanity.function.mutation.event",

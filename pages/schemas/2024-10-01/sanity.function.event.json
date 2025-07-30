@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://blueprints.sanity.io/schemas/2024-10-01/sanity.function.event.json",
+  "title": "sanity.function.event",
+  "description": "A Sanity Function that is invoked asynchronously and scales up in parallel",
+  "type": "object",
+  "properties": {
+    "type": { "enum": ["sanity.function.event"] },
+    "name": { "type": "string" },
+    "src": { "type": "string" },
+    "enabled": { "type": "boolean" },
+    "memory": { "type": "number" },
+    "timeout": { "type": "number" },
+    "env": { "type": "object" }
+  },
+  "required": ["type", "name", "src"]
+}

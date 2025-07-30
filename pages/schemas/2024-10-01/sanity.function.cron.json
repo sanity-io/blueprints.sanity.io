@@ -5,28 +5,27 @@
   "description": "A Sanity Function that is invoked on a schedule",
   "type": "object",
   "properties": {
-    "_type": { "enum": ["sanity.function.cron"] },
-    "src": {
-      "type": "string"
-    },
+    "type": { "enum": ["sanity.function.cron"] },
+    "name": { "type": "string" },
+    "src": { "type": "string" },
     "event": { "$ref": "/schemas/event" },
     "enabled": { "type": "boolean" },
     "memory": { "type": "number" },
     "timeout": { "type": "number" },
     "env": { "type": "object" }
   },
-  "required": ["_type", "src", "event"],
+  "required": ["type", "name", "src", "event"],
   "$defs": {
     "event": {
       "$id": "https://sanity.io/blueprints/schema/sanity.function.cron.event",
       "$schema": "http://json-schema.org/draft-07/schema#",
       "type": "object",
       "properties": {
-        "minute": {"type": "number"},
-        "hour": {"type": "number"},
-        "dayOfMonth": {"type": "number"},
-        "month": { "type": "number" },
-        "dayOfWeek": { "type": "number" }
+        "minute": {"type": "string"},
+        "hour": {"type": "string"},
+        "dayOfMonth": {"type": "string"},
+        "month": { "type": "string" },
+        "dayOfWeek": { "type": "string" }
       },
       "required": ["minute", "hour", "dayOfMonth", "month", "dayOfWeek"]
     }

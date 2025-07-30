@@ -1,11 +1,15 @@
+// deps
 import * as prism from 'prismjs'
 import 'prismjs/components/prism-json.js'
 import 'prismjs/components/prism-typescript.js'
 import {parse, serialize} from 'parse5'
 import enhance from '@enhance/ssr'
+
+// builtins
 import fs from 'node:fs'
 import { join } from 'node:path'
 
+// elements
 import json from './elements/bp-code-json.mjs'
 import ts from './elements/bp-code-ts.mjs'
 import code from './elements/bp-code.mjs'

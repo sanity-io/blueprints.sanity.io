@@ -4,9 +4,8 @@
   "title": "sanity.project.studio",
   "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
-    },
+    "type": { "enum": ["sanity.project.studio"] },
+    "name": { "type": "string" },
     "title": {
       "type": "string"
     },

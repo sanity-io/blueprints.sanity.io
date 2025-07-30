@@ -5,6 +5,8 @@
   "title": "sanity.project",
   "description": "Projects are collections of resources and a permissions boundary",
   "properties": {
+    "type": { "enum": ["sanity.project"] },
+    "name": { "type": "string" },
     "displayName": {
       "type": "string",
       "description": "Human-readable project name",

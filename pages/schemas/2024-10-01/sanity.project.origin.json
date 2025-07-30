@@ -5,6 +5,7 @@
   "title": "sanity.project.origin",
   "description": "CORS origins",
   "properties": {
+    "type": { "enum": ["sanity.project.origin"] },
     "name": { "type": "string" },
     "project": { "type": "string" },
     "origin": {

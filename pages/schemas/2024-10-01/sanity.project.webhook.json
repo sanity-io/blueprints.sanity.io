@@ -5,13 +5,15 @@
   "title": "sanity.project.webhook",
   "description": "Sanity webhook configuration",
   "properties": {
+    "type": { "enum": ["sanity.project.webhook"] },
+    "name": { "type": "string" },
     "project": {
       "type": "string",
       "description": "Project ID this webhook belongs to",
       "pattern": "^[a-z0-9]{8}$",
       "examples": ["abc12345"]
     },
-    "name": {
+    "displayName": {
       "type": "string",
       "description": "Human-readable webhook name",
       "minLength": 1,
@@ -117,6 +119,6 @@
       "examples": ["production", "staging", "development"]
     } 
   },
-  "required": ["name", "url", "on"],
+  "required": ["type", "name", "url", "on"],
   "additionalProperties": false
 }

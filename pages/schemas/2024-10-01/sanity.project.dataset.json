@@ -4,9 +4,8 @@
   "title": "sanity.project.dataset",
   "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
-    },
+    "type": { "enum": ["sanity.project.dataset"] },
+    "name": { "type": "string" },
     "displayName": {
       "type": "string"
     },
