@@ -5,14 +5,41 @@
   "description": "A Sanity Function that is invoked synchronously with an HTTP request that returns an HTTP response",
   "type": "object",
   "properties": {
-    "type": { "enum": ["sanity.function.https"] },
-    "name": { "type": "string", "description": "Function name" },
-    "src": { "type": "string", "description": "Source file path" },
-    "enabled": { "type": "boolean", "description": "Whether function is enabled", "default": true },
-    "memory": { "type": "number", "description": "Memory allocation in MB" },
-    "timeout": { "type": "number", "description": "Timeout in seconds" },
-    "env": { "type": "object", "description": "Environment variables" }
+    "type": {
+      "enum": [
+        "sanity.function.https"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Function name"
+    },
+    "src": {
+      "type": "string",
+      "description": "Source file path"
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether function is enabled",
+      "default": true
+    },
+    "memory": {
+      "type": "number",
+      "description": "Memory allocation in MB"
+    },
+    "timeout": {
+      "type": "number",
+      "description": "Timeout in seconds"
+    },
+    "env": {
+      "type": "object",
+      "description": "Environment variables"
+    }
   },
-  "required": ["type", "name", "src"],
+  "required": [
+    "type",
+    "name",
+    "src"
+  ],
   "additionalProperties": false
 }

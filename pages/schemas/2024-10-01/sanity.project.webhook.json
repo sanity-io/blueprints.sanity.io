@@ -5,25 +5,44 @@
   "description": "Webhook configuration for a Sanity project",
   "type": "object",
   "properties": {
-    "type": { "enum": ["sanity.project.webhook"] },
-    "name": { "type": "string", "description": "Webhook identifier" },
+    "type": {
+      "enum": [
+        "sanity.project.webhook"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Webhook identifier"
+    },
     "project": {
       "type": "string",
       "description": "Project ID this webhook belongs to",
       "pattern": "^[a-z0-9]{8}$",
-      "examples": ["abc12345"]
+      "examples": [
+        "abc12345"
+      ]
     },
     "displayName": {
       "type": "string",
       "description": "Human-readable webhook name",
       "minLength": 1,
       "maxLength": 100,
-      "examples": ["Site Rebuild", "Content Sync", "Notification Hook"]
+      "examples": [
+        "Site Rebuild",
+        "Content Sync",
+        "Notification Hook"
+      ]
     },
     "description": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "description": "Optional description of the webhook's purpose",
-      "examples": ["Triggers site rebuild on content changes", null]
+      "examples": [
+        "Triggers site rebuild on content changes",
+        null
+      ]
     },
     "url": {
       "type": "string",
@@ -40,18 +59,34 @@
       "description": "Events that trigger the webhook",
       "items": {
         "type": "string",
-        "enum": ["create", "update", "delete"]
+        "enum": [
+          "create",
+          "update",
+          "delete"
+        ]
       },
       "minItems": 1,
       "uniqueItems": true,
       "examples": [
-        ["create", "update", "delete"],
-        ["update"],
-        ["create", "delete"]
+        [
+          "create",
+          "update",
+          "delete"
+        ],
+        [
+          "update"
+        ],
+        [
+          "create",
+          "delete"
+        ]
       ]
     },
     "filter": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "description": "GROQ filter specifying which documents trigger the webhook",
       "examples": [
         "_type == \"post\"",
@@ -61,7 +96,10 @@
       ]
     },
     "projection": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "description": "GROQ projection defining the webhook payload",
       "examples": [
         "{ \"id\": _id, \"type\": _type, \"title\": title }",
@@ -72,13 +110,22 @@
     "status": {
       "type": "string",
       "description": "Whether the webhook is enabled or disabled",
-      "enum": ["enabled", "disabled"],
+      "enum": [
+        "enabled",
+        "disabled"
+      ],
       "default": "enabled"
     },
     "httpMethod": {
       "type": "string",
       "description": "HTTP method for the webhook request",
-      "enum": ["POST", "PUT", "PATCH", "DELETE", "GET"],
+      "enum": [
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE",
+        "GET"
+      ],
       "default": "POST"
     },
     "headers": {
@@ -108,17 +155,32 @@
       "default": false
     },
     "secret": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "description": "Secret used to sign webhook requests for verification",
-      "examples": ["webhook-secret-123", null]
+      "examples": [
+        "webhook-secret-123",
+        null
+      ]
     },
     "dataset": {
       "type": "string",
       "description": "Dataset name this webhook monitors",
       "pattern": "^[a-z0-9-_]+$",
-      "examples": ["production", "staging", "development"]
-    } 
+      "examples": [
+        "production",
+        "staging",
+        "development"
+      ]
+    }
   },
-  "required": ["type", "name", "url", "on"],
+  "required": [
+    "type",
+    "name",
+    "url",
+    "on"
+  ],
   "additionalProperties": false
 }

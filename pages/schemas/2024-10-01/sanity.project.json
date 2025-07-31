@@ -5,14 +5,25 @@
   "description": "Projects are collections of resources and a permissions boundary",
   "type": "object",
   "properties": {
-    "type": { "enum": ["sanity.project"] },
-    "name": { "type": "string", "description": "Project identifier" },
+    "type": {
+      "enum": [
+        "sanity.project"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Project identifier"
+    },
     "displayName": {
       "type": "string",
       "description": "Human-readable project name",
       "minLength": 1,
       "maxLength": 100,
-      "examples": ["My Blog", "E-commerce Site", "Portfolio"]
+      "examples": [
+        "My Blog",
+        "E-commerce Site",
+        "Portfolio"
+      ]
     },
     "studioHost": {
       "type": "string",
@@ -20,6 +31,9 @@
       "format": "hostname"
     }
   },
-  "required": ["type", "displayName"],
+  "required": [
+    "type",
+    "displayName"
+  ],
   "additionalProperties": false
 }

@@ -5,9 +5,19 @@
   "description": "CORS origins configuration for a Sanity project",
   "type": "object",
   "properties": {
-    "type": { "enum": ["sanity.project.origin"] },
-    "name": { "type": "string", "description": "Origin configuration identifier" },
-    "project": { "type": "string", "description": "Project ID this origin configuration belongs to" },
+    "type": {
+      "enum": [
+        "sanity.project.origin"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Origin configuration identifier"
+    },
+    "project": {
+      "type": "string",
+      "description": "Project ID this origin configuration belongs to"
+    },
     "origin": {
       "oneOf": [
         {
@@ -42,6 +52,11 @@
       "default": false
     }
   },
-  "required": ["type", "name", "origin", "project"],
+  "required": [
+    "type",
+    "name",
+    "origin",
+    "project"
+  ],
   "additionalProperties": false
 }

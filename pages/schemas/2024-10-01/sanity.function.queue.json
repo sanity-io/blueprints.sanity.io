@@ -5,16 +5,53 @@
   "description": "A Sanity Function that is invoked asynchronously and scales up with well defined concurrency semantics",
   "type": "object",
   "properties": {
-    "type": { "enum": ["sanity.function.queue"] },
-    "name": { "type": "string", "description": "Function name" },
-    "src": { "type": "string", "description": "Source file path" },
-    "enabled": { "type": "boolean", "description": "Whether function is enabled", "default": true },
-    "memory": { "type": "number", "description": "Memory allocation in MB" },
-    "timeout": { "type": "number", "description": "Timeout in seconds" },
-    "batchSize": { "type": "number", "description": "Number of messages to batch process at a time", "default": 1, "maximum": 10},
-    "batchWindow": { "type": "number", "description": "Number of seconds in batch process", "default": 0, "maximum": 300 },
-    "env": { "type": "object", "description": "Environment variables" }
+    "type": {
+      "enum": [
+        "sanity.function.queue"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Function name"
+    },
+    "src": {
+      "type": "string",
+      "description": "Source file path"
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether function is enabled",
+      "default": true
+    },
+    "memory": {
+      "type": "number",
+      "description": "Memory allocation in MB"
+    },
+    "timeout": {
+      "type": "number",
+      "description": "Timeout in seconds"
+    },
+    "batchSize": {
+      "type": "number",
+      "description": "Number of messages to batch process at a time",
+      "default": 1,
+      "maximum": 10
+    },
+    "batchWindow": {
+      "type": "number",
+      "description": "Number of seconds in batch process",
+      "default": 0,
+      "maximum": 300
+    },
+    "env": {
+      "type": "object",
+      "description": "Environment variables"
+    }
   },
-  "required": ["type", "name", "src"],
+  "required": [
+    "type",
+    "name",
+    "src"
+  ],
   "additionalProperties": false
 }

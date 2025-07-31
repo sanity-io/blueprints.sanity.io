@@ -5,8 +5,15 @@
   "description": "Dataset configuration for a Sanity project",
   "type": "object",
   "properties": {
-    "type": { "enum": ["sanity.project.dataset"] },
-    "name": { "type": "string", "description": "Dataset identifier" },
+    "type": {
+      "enum": [
+        "sanity.project.dataset"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Dataset identifier"
+    },
     "displayName": {
       "type": "string",
       "description": "Human-readable dataset name"
@@ -20,7 +27,12 @@
       "description": "Project ID this dataset belongs to"
     }
   },
-  "required": ["type", "name", "displayName", "project", "aclMode"],
+  "required": [
+    "type",
+    "name",
+    "displayName",
+    "project",
+    "aclMode"
+  ],
   "additionalProperties": false
 }
-

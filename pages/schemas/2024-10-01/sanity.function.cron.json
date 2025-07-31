@@ -5,16 +5,46 @@
   "description": "A Sanity Function that is invoked on a schedule",
   "type": "object",
   "properties": {
-    "type": { "enum": ["sanity.function.cron"] },
-    "name": { "type": "string", "description": "Function name" },
-    "src": { "type": "string", "description": "Source file path" },
-    "event": { "$ref": "#/$defs/event" },
-    "enabled": { "type": "boolean", "description": "Whether function is enabled", "default": true },
-    "memory": { "type": "number", "description": "Memory allocation in MB" },
-    "timeout": { "type": "number", "description": "Timeout in seconds" },
-    "env": { "type": "object", "description": "Environment variables" }
+    "type": {
+      "enum": [
+        "sanity.function.cron"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Function name"
+    },
+    "src": {
+      "type": "string",
+      "description": "Source file path"
+    },
+    "event": {
+      "$ref": "#/$defs/event"
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether function is enabled",
+      "default": true
+    },
+    "memory": {
+      "type": "number",
+      "description": "Memory allocation in MB"
+    },
+    "timeout": {
+      "type": "number",
+      "description": "Timeout in seconds"
+    },
+    "env": {
+      "type": "object",
+      "description": "Environment variables"
+    }
   },
-  "required": ["type", "name", "src", "event"],
+  "required": [
+    "type",
+    "name",
+    "src",
+    "event"
+  ],
   "additionalProperties": false,
   "$defs": {
     "event": {
@@ -22,13 +52,29 @@
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
-        "minute": {"type": "string"},
-        "hour": {"type": "string"},
-        "dayOfMonth": {"type": "string"},
-        "month": { "type": "string" },
-        "dayOfWeek": { "type": "string" }
+        "minute": {
+          "type": "string"
+        },
+        "hour": {
+          "type": "string"
+        },
+        "dayOfMonth": {
+          "type": "string"
+        },
+        "month": {
+          "type": "string"
+        },
+        "dayOfWeek": {
+          "type": "string"
+        }
       },
-      "required": ["minute", "hour", "dayOfMonth", "month", "dayOfWeek"]
+      "required": [
+        "minute",
+        "hour",
+        "dayOfMonth",
+        "month",
+        "dayOfWeek"
+      ]
     }
   }
 }

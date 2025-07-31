@@ -5,16 +5,46 @@
   "description": "A Sanity Function that is invoked upon document mutations",
   "type": "object",
   "properties": {
-    "type": { "enum": ["sanity.function.document"] },
-    "name": { "type": "string", "description": "Function name" },
-    "src": { "type": "string", "description": "Source file path" },
-    "event": { "$ref": "#/$defs/event" },
-    "enabled": { "type": "boolean", "description": "Whether function is enabled", "default": true },
-    "memory": { "type": "number", "description": "Memory allocation in MB" },
-    "timeout": { "type": "number", "description": "Timeout in seconds" },
-    "env": { "type": "object", "description": "Environment variables" }
+    "type": {
+      "enum": [
+        "sanity.function.document"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Function name"
+    },
+    "src": {
+      "type": "string",
+      "description": "Source file path"
+    },
+    "event": {
+      "$ref": "#/$defs/event"
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether function is enabled",
+      "default": true
+    },
+    "memory": {
+      "type": "number",
+      "description": "Memory allocation in MB"
+    },
+    "timeout": {
+      "type": "number",
+      "description": "Timeout in seconds"
+    },
+    "env": {
+      "type": "object",
+      "description": "Environment variables"
+    }
   },
-  "required": ["type", "name", "src", "event"],
+  "required": [
+    "type",
+    "name",
+    "src",
+    "event"
+  ],
   "additionalProperties": false,
   "$defs": {
     "event": {
@@ -22,13 +52,26 @@
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "type": "object",
       "properties": {
-        "on": {"type": "array"},
-        "filter": {"type": "string"},
-        "projection": {"type": "string"},
-        "drafts": { "type": "boolean" },
-        "datasets": { "type": "array" }
+        "on": {
+          "type": "array"
+        },
+        "filter": {
+          "type": "string"
+        },
+        "projection": {
+          "type": "string"
+        },
+        "drafts": {
+          "type": "boolean"
+        },
+        "datasets": {
+          "type": "array"
+        }
       },
-      "required": ["filter", "projection"]
+      "required": [
+        "filter",
+        "projection"
+      ]
     }
   }
 }

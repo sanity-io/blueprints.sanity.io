@@ -5,8 +5,15 @@
   "description": "Studio configuration for a Sanity project",
   "type": "object",
   "properties": {
-    "type": { "enum": ["sanity.project.studio"] },
-    "name": { "type": "string", "description": "Studio identifier" },
+    "type": {
+      "enum": [
+        "sanity.project.studio"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "Studio identifier"
+    },
     "displayName": {
       "type": "string",
       "description": "Human-readable studio name"
@@ -30,10 +37,18 @@
           "description": "Array of schema type definitions"
         }
       },
-      "required": ["types"]
+      "required": [
+        "types"
+      ]
     }
   },
-  "required": ["type", "name", "displayName", "project", "dataset", "schema"],
+  "required": [
+    "type",
+    "name",
+    "displayName",
+    "project",
+    "dataset",
+    "schema"
+  ],
   "additionalProperties": false
 }
-
