@@ -1,0 +1,58 @@
+<h1>Using an App</h1> 
+
+<p>Apps are declared in a Blueprint and Apps are installed by a Blueprint!</p>
+
+<p>Simplest possible App:</p>
+
+<bp-code>
+  <bp-code-json slot=json>
+    {
+      "resources": [{ 
+        "name": "example", 
+        "type": "sanity.app",
+        "namespace": "basic.example.app",
+        "version": "1.0.0"
+      ]}
+    }
+  </bp-code-json>
+  <bp-code-ts slot=ts> 
+    import {defineBlueprint, defineApp} from '@sanity/blueprints'
+
+    export default defineBlueprint({
+      resources: [
+        defineApp({
+          name: 'myapp',
+          namespace: 'basic.example.app',
+          version: '1.0.0'
+        })
+      ]
+    })
+  </bp-code-ts>
+</bp-code>
+
+Apps are registered as custom resource types when the Blueprint they are defined in is deployed. Apps are available to be used as custom resource types by anyone in the same Organization.
+
+Then, in the same Blueprint or another, you instantiate the App as you would any other resource.
+
+<bp-code>
+  <bp-code-json slot=json>
+    {
+      "resources": [{ 
+        "name": "myapp", 
+        "type": "basic.example.app",
+        "version": "1.0.0" 
+      ]}
+    }
+  </bp-code-json>
+  <bp-code-ts slot=ts> 
+    import {defineBlueprint, defineAppImport} from '@sanity/blueprints'
+
+    export default defineBlueprint({
+      resources: [
+        defineAppImport({name: 'myapp', type: 'basic.example.app', version: '1.0.0' }),
+      ],
+    })
+  </bp-code-ts>
+</bp-code>
+
+In this example, running <code>sanity deploy</code> will create the resources defined by App without the end developer needing to worry about how those resources are configured.
