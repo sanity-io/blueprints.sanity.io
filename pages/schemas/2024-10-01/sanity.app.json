@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://blueprints.sanity.io/schemas/2024-10-01/sanity.app.json",
+  "title": "sanity.app",
+  "description": "Define a Sanity App",
+  "type": "object",
+  "properties": {
+    "type": {
+      "enum": [
+        "sanity.app"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "App identifier"
+    },
+    "description": {
+      "type": "string",
+      "description": "App description"
+    },
+    "namespace": {
+      "type": "string",
+      "description": "Defines the App type namesace; this translates to the type property used by a consuming Blueprint",
+      "examples": ["sanity.example.blog", "my.custom.thing"]
+    },
+    "version": {
+      "type": "string",
+      "description": "Semver version string for the App"
+    },
+    "slug": {
+      "type": "string",
+      "description": "Define the app subdomain",
+      "examples": ["myblog"]
+    },
+    "icon": {
+      "type": "string",
+      "description": "Path to App icon svg file"
+    },
+    "resources": {
+      "type": "array",
+      "description": "Collection of resources instantiated with this App",
+      "items": {
+        "type": "object",
+        "description": "Individual cloud resource",
+        "properties": {
+          "name": {
+            "$ref": "#/$defs/name"
+          },
+          "type": {
+            "$ref": "#/$defs/type"
+          }
+        },
+        "required": [
+          "name",
+          "type"
+        ],
+        "additionalProperties": true
+      }
+    
+    },
+    "params": {
+      "type": "object",
+      "description": "Configuration parameters passed into the App as key/value pairs"
+    }
+  },
+  "required": [
+    "type",
+    "name",
+    "namespace",
+    "resources"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-zA-Z][a-zA-Z0-9-_]*(?<![-_])$"
+    },
+    "type": {
+      "type": "string",
+      "pattern": "^[a-zA-Z]([a-zA-Z0-9-_]+\\.?)*(?<![-_\\.])$"
+    }
+  }
+}
