@@ -1,9 +1,28 @@
 {
   "name": "@sanity/blueprints-jsonschemas",
   "version": "0.0.1",
+  "description": "JSON schemas for Sanity Blueprints configuration files",
   "main": "./schemas.js",
-  "files": ["schemas.js", "pages/schemas"],
+  "files": [
+    "schemas.js",
+    "pages/schemas",
+    "README.md"
+  ],
   "type": "module",
+  "keywords": [
+    "sanity",
+    "blueprints",
+    "json-schema",
+    "validation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sanity-io/blueprints.sanity.io.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
   "arc": {
     "app": "blueprints",
     "http": {
@@ -21,7 +40,9 @@
     "test:unit": "node --test tests/unit/**/*.test.js",
     "test:integration": "node --test tests/integration/**/*.test.js",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "prepublishOnly": "npm test && npm run lint",
+    "release": "./scripts/release.sh"
   },
   "devDependencies": {
     "@architect/functions": "^8.1.9",
