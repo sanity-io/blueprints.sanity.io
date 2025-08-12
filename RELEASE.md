@@ -54,7 +54,7 @@ If you prefer to release manually:
 
 ### CI Workflow (`.github/workflows/ci.yml`)
 - Runs on every push to `main` and pull requests
-- Tests on Node.js versions 18, 20, and 22
+- Tests on Node.js version 22
 - Runs tests and linting
 
 ### Publish Workflow (`.github/workflows/publish.yml`)
