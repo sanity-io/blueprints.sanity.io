@@ -1,7 +1,7 @@
 export default [
   {
     languageOptions: {
-      ecmaVersion: 2022,
+      ecmaVersion: 2024,
       sourceType: 'module',
       globals: { console: 'readonly', process: 'readonly', global: 'writable', window: 'readonly', document: 'readonly', Prism: 'readonly' }
     },

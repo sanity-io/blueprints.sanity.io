@@ -1,18 +1,23 @@
-import app from './pages/schemas/2024-10-01/sanity.app.json' with { type: 'json' }
-import blueprint from './pages/schemas/2024-10-01/sanity.blueprint.json' with { type: 'json' }
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 
-import cron from './pages/schemas/2024-10-01/sanity.function.cron.json' with { type: 'json' }
-import document from './pages/schemas/2024-10-01/sanity.function.document.json' with { type: 'json' }
-import event from './pages/schemas/2024-10-01/sanity.function.event.json' with { type: 'json' }
-import https from './pages/schemas/2024-10-01/sanity.function.https.json' with { type: 'json' }
-import queue from './pages/schemas/2024-10-01/sanity.function.queue.json' with { type: 'json' }
-import wss from './pages/schemas/2024-10-01/sanity.function.wss.json' with { type: 'json' }
+const loadSchema = (filename) => JSON.parse(readFileSync(join(process.cwd(), 'pages/schemas/2024-10-01', filename), 'utf8'))
 
-import project from './pages/schemas/2024-10-01/sanity.project.json' with { type: 'json' }
-import dataset from './pages/schemas/2024-10-01/sanity.project.dataset.json' with { type: 'json' }
-import origin from './pages/schemas/2024-10-01/sanity.project.origin.json' with { type: 'json' }
-import studio from './pages/schemas/2024-10-01/sanity.project.studio.json' with { type: 'json' }
-import webhook from './pages/schemas/2024-10-01/sanity.project.webhook.json' with { type: 'json' }
+const app = loadSchema('sanity.app.json')
+const blueprint = loadSchema('sanity.blueprint.json')
+
+const cron = loadSchema('sanity.function.cron.json')
+const document = loadSchema('sanity.function.document.json')
+const event = loadSchema('sanity.function.event.json')
+const https = loadSchema('sanity.function.https.json')
+const queue = loadSchema('sanity.function.queue.json')
+const wss = loadSchema('sanity.function.wss.json')
+
+const project = loadSchema('sanity.project.json')
+const dataset = loadSchema('sanity.project.dataset.json')
+const origin = loadSchema('sanity.project.origin.json')
+const studio = loadSchema('sanity.project.studio.json')
+const webhook = loadSchema('sanity.project.webhook.json')
 
 project.dataset = dataset
 project.origin = origin
