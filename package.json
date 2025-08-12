@@ -23,14 +23,12 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "dependencies": {
+  "devDependencies": {
     "@architect/functions": "^8.1.9",
     "@enhance/ssr": "^4.0.3",
     "@paramour/css": "^1.0.0-rc.2",
     "parse5": "^8.0.0",
-    "prismjs": "^1.30.0"
-  },
-  "devDependencies": {
+    "prismjs": "^1.30.0",
     "@architect/deploy": "^5.0.8",
     "@architect/sandbox": "^7.1.0",
     "eslint": "^9.32.0"
