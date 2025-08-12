@@ -1,7 +1,9 @@
 import { readFileSync } from 'node:fs'
-import { join } from 'node:path'
+import { join, dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-const loadSchema = (filename) => JSON.parse(readFileSync(join(process.cwd(), 'pages/schemas/2024-10-01', filename), 'utf8'))
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const loadSchema = (filename) => JSON.parse(readFileSync(join(__dirname, 'pages/schemas/2024-10-01', filename), 'utf8'))
 
 const app = loadSchema('sanity.app.json')
 const blueprint = loadSchema('sanity.blueprint.json')
