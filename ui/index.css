@@ -55,6 +55,11 @@ bp-layout > main {
   grid-area: main;
 }
 
+bp-layout main ul,
+bp-layout main ol {
+  margin: 20px;
+}
+
 bp-debug {
   grid-area: debug;
 }

@@ -1,4 +1,8 @@
 {
+  "name": "@sanity/blueprints-jsonschemas",
+  "version": "0.0.1",
+  "main": "./schemas.js",
+  "files": ["schemas.js", "pages/schemas"],
   "type": "module",
   "arc": {
     "app": "blueprints",
