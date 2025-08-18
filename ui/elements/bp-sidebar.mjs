@@ -10,10 +10,10 @@ export default function sidebar({ html, state }) {
         <h2 class="mbe-4 font-sans text-2 uppercase tracking2 font-semibold">Concepts</h2>
         <a ${active('/')}> Overview</a>
         <a ${active('/concepts/resources')}>Resources</a>
+        <a ${active('/concepts/references')}>References</a>
         <a ${active('/concepts/stacks')}>Stacks</a>
         <a ${active('/concepts/values')}>Values</a>
         <a ${active('/concepts/parameters')}>Parameters</a>
-        <a ${active('/concepts/references')}>References</a>
         <a ${active('/concepts/outputs')}>Outputs</a>
       </section>
 

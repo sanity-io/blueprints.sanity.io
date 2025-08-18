@@ -151,6 +151,12 @@ bp-jsonschema a {
  * --syntax-cursor-line: hsla(230, 8%, 24%, 0.05);
  */
 
+  main code {
+    padding: 3px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+  }
+main code,
 code[class*='language-'],
 pre[class*='language-'] {
   background: hsl(230, 1%, 98%);

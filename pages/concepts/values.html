@@ -1,18 +1,47 @@
 <bp-h1>Values</bp-h1>
-
 <p>
     Values are variables that developers can define for reuse within the
     Blueprint manifest. They represent configurable parameters, constants, and
     dynamic configurations that can be referenced throughout your infrastructure
     definition.
 </p>
-
-<p>Defining values in a Blueprint manifest: TODO EXMAMPLE HERE</p>
 <p>
     Values can then be referenced throughout your Blueprint template using
-    interpolation syntax like `$.values.environment}` or
-    `$.values.instance_count`.
+    interpolation syntax like <code>$.values.environment</code> or
+    <code>$.values.instance_count</code>.
 </p>
+<bp-code>
+  <bp-code-json slot=json>
+{
+  "resources": [
+    {
+      "name": "sanetti-inc",
+      "type": "sanity.project"
+    },
+    {
+      "name": "update-cdn",
+      "type": "sanity.function.document-mutation",
+      "project": "$.resources.sanetti-inc"
+    }
+  ]
+}
+  </bp-code-json>
+  <bp-code-ts slot=ts>
+import {defineBlueprint, defineProject, defineDataset} from '@sanity/blueprints'
+
+export default defineBlueprint({
+  resources: [
+    defineProject({ 
+      name: 'sanetti-inc' 
+    }),
+    defineDataset({ 
+      name: 'blog', 
+      project: '$.resources.sanetti-inc' 
+    })
+  ]
+})
+  </bp-code-ts>
+</bp-code>
 <bp-h2>Features of Values</bp-h2>
 <ul>
     <li>

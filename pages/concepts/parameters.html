@@ -1,12 +1,60 @@
 <bp-h1>Parameters</bp-h1>
 
-<p>Parameters are input values that are passed into a Stack at deployment time. They allow you to customize the behavior and configuration of your infrastructure without modifying the underlying template code. Parameters act as the interface between your infrastructure template and the outside world. When you deploy a stack, you provide specific parameter values that the template uses to configure resources. </p>
+<p>Parameters are input values that are passed into a Stack at deployment time. They allow you to customize the behavior and configuration of your infrastructure without modifying the underlying template code. Parameters act as the interface between your infrastructure template and the outside world. When you deploy a stack, you provide specific parameter values that the template uses to configure resources. Parameters are passed in by either via commandline arguments, environment variables or stdin.</p>
 
-<p>For example, you might pass parameters like: TODO EXAMPLE
+<p>Each parameter must have a unique name, a type, and, depending on the type, an input.</p>
 
-The template then uses these parameter values to configure resources according to your specific requirements.</p>
+<p>
+Parameter types include:
+<ul>
+  <li><code>arg</code> (or <code>argument</code>) - CLI arguments passed to Blueprints tooling</li>
+  <li><code>envVar</code> - environment variables; case sensitive</li>
+  <li><code>stdin</code> - stdin stream passed to Blueprints tooling</li>
+</ul>
+</p>
 
-<bp-h2>Parameters are essential</bp-h2>
+<bp-h2>Example</bp-h2>
+<p>In this case, the Sanity CLI will use the <code>mem</code> parameter to interpret the terminal argument <code>sanity deploy --memory 1024</code>.</p>
+
+<bp-code>
+  <bp-code-json slot=json>
+{
+  "resources": [
+    {
+      "name": "update-cdn",
+      "type": "sanity.function.document",
+      "memory": "$.parameters.mem" 
+    }
+  ],
+  "parameters": [
+    {
+      "name": "mem",
+      "type": "arg",
+      "input": "memory"
+    }
+  ]
+}
+  </bp-code-json>
+  <bp-code-ts slot=ts>
+import {defineBlueprint, defineDocumentFunction, defineParameter} from '@sanity/blueprints'
+
+export default defineBlueprint({
+  resources: [
+    defineDocumentFunction({
+      name: 'log-event',
+      memory: '$.parameters.mem'
+    }),
+    defineParamter({ 
+      name: 'mem', 
+      type: 'arg', 
+      input: 'memory'
+    })
+  ]
+})
+  </bp-code-ts>
+</bp-code>
+
+<bp-h2>Clean composition</bp-h2>
 <p>
 <ul>
   <li>Template flexibility: Parameters make templates reusable across different environments, projects, and use cases. The same template can deploy a small development environment or a large production system based on the parameters provided.

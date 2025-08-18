@@ -1,21 +1,21 @@
 <h1>A simple Blueprint</h1> 
 
 <bp-code>
-  <bp-code-json slot=json>
-    {
-      "resources": [{ 
-        "name": "log-event", 
-        "type": "sanity.function.document" 
-      ]}
-    }
-  </bp-code-json>
-  <bp-code-ts slot=ts> 
-    import {defineBlueprint, defineDocumentFunction} from '@sanity/blueprints'
+<bp-code-json slot=json>
+{
+  "resources": [{ 
+    "name": "log-event", 
+    "type": "sanity.function.document" 
+  ]}
+}
+</bp-code-json>
+<bp-code-ts slot=ts> 
+import {defineBlueprint, defineDocumentFunction} from '@sanity/blueprints'
 
-    export default defineBlueprint({
-      resources: [
-        defineDocumentFunction({name: 'log-event'}),
-      ],
-    })
-  </bp-code-ts>
+export default defineBlueprint({
+  resources: [
+    defineDocumentFunction({ name: 'log-event' })
+  ]
+})
+</bp-code-ts>
 </bp-code>

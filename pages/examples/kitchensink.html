@@ -1,23 +1,95 @@
 <h1>Kitchen sink Blueprint</h1> 
 
 <bp-code>
-  <bp-code-json slot=json>
- { "resources": [
-    {"type": "sanity.project",         "name": "blog",   "displayName": "Brian's retro game blog"},
-    {"type": "sanity.project.dataset", "name": "posts",  "project": "$.resources.blog", "displayName": "Posts", "aclMode": "public"},
-    {"type": "sanity.project.studio",  "name": "studio", "project": "$.resources.blog", "title": "Admin Studio", "dataset": "$.resources.posts"},
-    {"type": "sanity.project.origin",  "name": "cors",   "project": "$.resources.blog", "origin": "https://brian.io", "allowCredentials": true },
-    {"type": "sanity.project.webhook", "name": "stripe", "project": "$.resources.blog", "url": "https://brian.io/webhook", "on": ["create"] }
+<bp-code-json slot=json>
+{ 
+  "resources": [
+    {
+      "type": "sanity.project", 
+      "name": "blog",   
+      "displayName": "Brian's retro game blog"
+    },
+    {
+      "type": "sanity.project.dataset", 
+      "name": "posts",  
+      "project": "$.resources.blog", 
+      "displayName": "Posts", 
+      "aclMode": "public"
+    },
+    {
+      "type": "sanity.project.studio", 
+      "name": "studio", 
+      "project": "$.resources.blog", 
+      "title": "Admin Studio", 
+      "dataset": "$.resources.posts"
+    },
+    {
+      "type": "sanity.project.origin", 
+      "name": "cors",   
+      "project": "$.resources.blog", 
+      "origin": "https://brian.io", 
+      "allowCredentials": true 
+    },
+    {
+      "type": "sanity.project.webhook", 
+      "name": "stripe", 
+      "project": "$.resources.blog", 
+      "url": "https://brian.io/webhook", 
+      "on": ["create"]
+    },
+    {
+      "type": "sanity.function.document", 
+      "name": 
+      "log-event" 
+    }
   ]
 }
-  </bp-code-json>
-  <bp-code-ts slot=ts> 
-    import {defineBlueprint, defineDocumentFunction} from '@sanity/blueprints'
+</bp-code-json>
+<bp-code-ts slot=ts> 
+import {
+  defineBlueprint, 
+  defineProject,
+  defineDataset,
+  defineStudio,
+  defineOrigin,
+  defineWebhook,
+  defineDocumentFunction
+} from '@sanity/blueprints'
 
-    export default defineBlueprint({
-      resources: [
-        defineDocumentFunction({name: 'log-event'}),
-      ],
+export default defineBlueprint({
+  resources: [
+    defineProject({
+      name: 'blog', 
+      displayName: "Brian's retro game blog' 
+    }),
+    defineDataset({ 
+      name: 'posts', 
+      project: '$.resources.blog', 
+      displayName: 'Posts', 
+      aclMode: 'public' 
+    }),
+    defineStudio({ 
+      name: 'studio', 
+      project: '$.resources.blog', 
+      title: 'Admin Studio', 
+      dataset: '$.resources.posts' 
+    }),
+    defineOrigin({ 
+      name: 'cors', 
+      project: '$.resources.blog', 
+      origin: 'https://brian.io', 
+      allowCredentials: true 
+    }),
+    defineWebhook({ 
+      name: 'stripe', 
+      project: '$.resources.blog', 
+      url: 'https://brian.io/webhook', 
+      on: ['create'] 
+    }),
+    defineDocumentFunction({ 
+      name: 'log-event' 
     })
-  </bp-code-ts>
+  ]
+})
+</bp-code-ts>
 </bp-code>
