@@ -2,37 +2,49 @@ import { readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+const versions = ['2024-10-01']
+const latest = '2024-10-01'
+
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const loadSchema = (filename) => JSON.parse(readFileSync(join(__dirname, 'pages/schemas/2024-10-01', filename), 'utf8'))
 
-const app = loadSchema('sanity.app.json')
-const blueprint = loadSchema('sanity.blueprint.json')
+const schemas = {}
+for (const version of versions) {
+  const loadSchema = (filename) => JSON.parse(readFileSync(join(__dirname, `pages/schemas/${version}`, filename), 'utf8'))
 
-const cron = loadSchema('sanity.function.cron.json')
-const document = loadSchema('sanity.function.document.json')
-const event = loadSchema('sanity.function.event.json')
-const https = loadSchema('sanity.function.https.json')
-const queue = loadSchema('sanity.function.queue.json')
-const wss = loadSchema('sanity.function.wss.json')
+  const app = loadSchema('sanity.app.json')
+  const blueprint = loadSchema('sanity.blueprint.json')
 
-const project = loadSchema('sanity.project.json')
-const dataset = loadSchema('sanity.project.dataset.json')
-const origin = loadSchema('sanity.project.origin.json')
-const studio = loadSchema('sanity.project.studio.json')
-const webhook = loadSchema('sanity.project.webhook.json')
+  const cron = loadSchema('sanity.function.cron.json')
+  const document = loadSchema('sanity.function.document.json')
+  const event = loadSchema('sanity.function.event.json')
+  const https = loadSchema('sanity.function.https.json')
+  const queue = loadSchema('sanity.function.queue.json')
+  const wss = loadSchema('sanity.function.wss.json')
 
-project.dataset = dataset
-project.origin = origin
-project.studio = studio
-project.webhook = webhook
+  const project = loadSchema('sanity.project.json')
+  const dataset = loadSchema('sanity.project.dataset.json')
+  const origin = loadSchema('sanity.project.origin.json')
+  const studio = loadSchema('sanity.project.studio.json')
+  const webhook = loadSchema('sanity.project.webhook.json')
 
-export default { 
-  sanity: { 
-    blueprint, 
-    project,
-    app,
-    function: { 
-      cron, document, event, https, queue, wss 
+  project.dataset = dataset
+  project.origin = origin
+  project.studio = studio
+  project.webhook = webhook
+
+  schemas[version] = { 
+    sanity: { 
+      blueprint, 
+      project,
+      app,
+      function: { 
+        cron, document, event, https, queue, wss 
+      }
     }
   }
+  if (version === latest) {
+    schemas.latest = schemas[version]
+  }
 }
+
+export default schemas
