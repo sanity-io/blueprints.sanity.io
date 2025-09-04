@@ -1,6 +1,6 @@
 {
   "name": "@sanity/blueprints-jsonschemas",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "JSON schemas for Sanity Blueprints configuration files",
   "main": "./schemas.js",
   "files": [
