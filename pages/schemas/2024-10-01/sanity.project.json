@@ -29,6 +29,13 @@
       "type": "string",
       "description": "Custom studio host URL",
       "format": "hostname"
+    },
+    "logo": {
+      "type": "string",
+      "description": "Path to the project's logo image, relative to the Blueprint. Uploaded on every deploy; omitting it removes the logo. PNG, JPEG, BMP, GIF, TIFF, SVG, WebP, HEIF or AVIF, up to 5 MB.",
+      "examples": [
+        "./logo.png"
+      ]
     }
   },
   "required": [
